@@ -6,4 +6,4 @@
 - Chủ đề và corpus: Tra cứu Python Standard Library 3.12.10, 35 mục thuộc 12 module.
 - Repo bài nộp: [K5-L3A-Day06-LeGiaHung-2A202603713-DataIngestionEngineering](https://github.com/LeGiaHung29805/K5-L3A-Day06-LeGiaHung-2A202603713-DataIngestionEngineering).
 - Báo cáo cá nhân và cách chạy: [2A202603713_LeGiaHung.md](report/individual/2A202603713_LeGiaHung.md).
-- Commit chốt bài: d54817c15a30d239202474b297694d577e13f42f
+- Commit chốt bài: 89ac3cad434887109ed9a6f3583d31fd24b1c6a4
