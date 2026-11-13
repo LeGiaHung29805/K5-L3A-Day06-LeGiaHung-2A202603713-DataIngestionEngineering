@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 06 · Data Ingestion Lab</title>
+<style>
+:root{color-scheme:light;--ink:#18322a;--muted:#54685e;--green:#11634b;--deep:#102d24;--line:#dfe8df;--paper:#f3f6f0;--white:#fff;--lime:#d4ee91;--mono:"IBM Plex Mono",Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Inter","Segoe UI",sans-serif}
+button,input,select{font:inherit}
+a{color:var(--green)}
+button,select{cursor:pointer}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #438262;outline-offset:3px}
+.shell{min-height:100vh;display:grid;grid-template-columns:222px minmax(0,1fr)}
+aside{background:var(--deep);color:#fff;padding:29px 17px 22px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:11px;margin:0 7px 38px}
+.logo{width:38px;height:38px;display:grid;place-items:center;background:var(--lime);color:var(--deep);border-radius:10px;font:700 19px var(--mono)}
+.brand strong,.brand small{display:block}
+.brand strong{font-size:16px;letter-spacing:-.35px}
+.brand small,.rail-footer{color:#b4c6bb;font-size:12px}
+nav{display:grid;gap:5px}
+nav a{display:flex;align-items:center;gap:12px;text-decoration:none;color:#d1ded4;padding:11px 12px;border-radius:8px}
+nav a:hover,nav a[aria-current="page"]{background:#244437;color:#f2f8ea}
+nav a[aria-current="page"]{box-shadow:inset 3px 0 var(--lime);font-weight:650}
+.nav-icon{display:inline-grid;width:17px;place-items:center;color:var(--lime);font:16px var(--mono)}
+.rail-footer{margin:auto 7px 0;padding-top:16px;border-top:1px solid #345145}
+.rail-footer span{display:block;color:#eff5eb;font-size:13px}
+main{min-width:0}
+.top{height:63px;background:#fafcf8;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;color:var(--muted);gap:12px;font-size:13px}
+.top strong{color:var(--ink)}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap}
+.status::before{content:"";width:7px;height:7px;background:#5c9f54;border-radius:50%}
+#view{max-width:1370px;margin:auto;padding:30px 34px 45px}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(28px,3.35vw,51px);font-weight:720;line-height:1.07;letter-spacing:-.055em}
+h2{font-size:23px;letter-spacing:-.035em;line-height:1.25}
+h3{font-size:16px;letter-spacing:-.016em}
+.lead{color:var(--muted);margin-top:9px;max-width:750px}
+.pagehead{margin-bottom:23px}
+.hero{background:#184637;color:#f6faf0;border-radius:18px;overflow:hidden}
+.hero-copy{padding:30px 32px}
+.eyebrow{display:block;color:var(--green);font:650 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.hero .eyebrow{color:#d1ed9a}
+.hero p{color:#deebde;margin:12px 0 21px;max-width:620px}
+.hero h1{max-width:720px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:9px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.flow li{position:relative;border:1px solid var(--line);border-radius:8px;background:#f7faf5;padding:12px}
+.flow strong,.flow span{display:block}
+.flow span{color:var(--muted);font-size:13px;margin-top:3px}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:11px;color:var(--green);width:12px;text-align:center}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:8px;padding:9px 14px;text-decoration:none;font-weight:650;background:var(--green);color:white}
+.button:hover{filter:brightness(.92)}
+.button:disabled{cursor:wait;opacity:.75}
+.button.light{background:var(--lime);color:#153729}
+.button.subtle{background:#fff;color:var(--green);border-color:var(--line)}
+.stats{margin:17px 0 24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat,.panel,.chunk{border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.stat{padding:14px 15px}
+.stat strong{display:block;font-size:26px;letter-spacing:-.04em;line-height:1.25}
+.stat span,.muted{color:var(--muted)}
+.stat span,.note{font-size:13px}
+.panel{padding:19px;margin-bottom:16px;min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 15px}
+.field{display:grid;gap:4px;font-size:13px;color:var(--muted);min-width:0}
+.grow{flex:1;min-width:min(100%,220px)}
+select,input{width:100%;min-width:0;border:1px solid #b9c9be;background:white;color:var(--ink);border-radius:7px;padding:8px 9px}
+.segments{display:flex;gap:3px;padding:3px;background:#edf2eb;border:1px solid var(--line);border-radius:8px;width:max-content}
+.segments button{border:0;background:none;color:var(--muted);border-radius:5px;padding:5px 12px}
+.segments button[aria-pressed="true"]{background:white;color:var(--green);font-weight:650;box-shadow:0 1px 3px #1537291a}
+.columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.columns.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+th,td{padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-size:12px;font-weight:650;background:#f3f7f1;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.winner td{background:#f0f7ed}
+.num{font:600 13px var(--mono);white-space:nowrap}
+.tag{display:inline-flex;align-items:center;border-radius:5px;padding:2px 7px;background:#e9f2e8;color:#245a42;font:600 12px/1.5 var(--mono);vertical-align:middle}
+.tag.gray{background:#eef1ed;color:#4f6056}
+.tag.warm{background:#fbefd7;color:#754f19}
+.tag + .tag{margin-left:4px}
+.note{margin-top:12px;color:var(--muted)}
+.question{font-size:18px;font-weight:650;line-height:1.35;margin:8px 0}
+.answer{margin:13px 0 8px;padding:11px 13px;background:#eff6eb;border-left:3px solid #6c9a71;border-radius:0 7px 7px 0}
+.answer strong{display:block;font-size:12px;color:var(--green);margin-bottom:2px}
+.rank-head,.rank-row{display:grid;grid-template-columns:minmax(130px,1.55fr) repeat(3,minmax(0,1fr));align-items:center;gap:6px}
+.rank-head{color:var(--muted);font-size:12px;margin:10px 0 5px;text-align:center}
+.rank-row{border-top:1px solid var(--line);padding:7px 0}
+.rank-label{font-size:13px;line-height:1.35}
+.rank-label strong{display:block;font-size:15px}
+.rank-button{min-height:38px;border:1px solid #d9e3d9;border-radius:6px;background:#f7f9f6;color:#43574b;padding:4px 3px;font-size:12px;line-height:1.25}
+.rank-button.good{background:#e3f3d8;border-color:#b2d7ac;color:#225538;font-weight:650}
+.rank-button[aria-pressed="true"]{outline:2px solid var(--green);outline-offset:1px}
+.rank-button:disabled{cursor:default}
+.rank-detail{border-top:1px solid var(--line);margin-top:9px;padding-top:11px}
+.rank-detail .excerpt{max-height:19rem;overflow:auto}
+.step-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px}
+#mobile-nav{display:none}
+.quote{background:#f0f6ed;padding:11px 13px;border-left:3px solid #7ca87d;margin-top:8px;border-radius:0 6px 6px 0}
+.chunk{padding:12px;margin-top:9px;min-width:0}
+.chunk.good{border-color:#98c6a3;background:#f7fcf6}
+.chunk-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px}
+.chunk-meta{display:flex;flex-wrap:wrap;gap:8px;margin:7px 0;font-size:12px;color:var(--muted)}
+.excerpt{margin:9px 0 0;padding:9px;background:#f3f6f2;border-radius:6px;font:12px/1.52 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.evidence{background:#d8eead;color:#203622}
+details{margin-top:8px}
+summary{cursor:pointer;color:var(--green);font-size:13px;font-weight:620}
+.source-list details{border-bottom:1px solid var(--line);padding:7px 0 10px}
+.source-list details:last-child{border:0}
+.source-list summary{font-size:14px}
+.source-list ul{padding-left:20px;margin:6px 0}
+.plain{margin:5px 0 0;padding-left:18px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:0}
+.facts div{border:1px solid var(--line);background:#f7faf5;padding:10px;border-radius:7px;overflow-wrap:anywhere}
+.facts dt{color:var(--muted);font-size:12px}
+.facts dd{margin:4px 0 0;font-weight:650}
+.message{margin:12px 0;color:#794729}
+code{font:12px var(--mono);overflow-wrap:anywhere}
+[hidden]{display:none!important}
+@media(max-width:1050px){.shell{grid-template-columns:180px minmax(0,1fr)}aside{padding-inline:11px}.top,#view{padding-inline:23px}.columns.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.shell{display:block}aside{height:auto;position:static;padding:12px}.brand{margin:0 4px 10px}nav,.rail-footer{display:none}#mobile-nav{display:block;max-width:420px}.top{height:44px}.top,#view{padding-inline:13px}#view{padding-top:15px}.hero-copy{padding:23px}.stats,.facts,.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow li:nth-child(2)::after{display:none}.columns,.columns.three{grid-template-columns:1fr}.panel{padding:13px}th,td{padding:8px}.top .status{font-size:11px}}
+@media(max-width:420px){.rank-head,.rank-row{grid-template-columns:minmax(65px,1.1fr) repeat(3,minmax(0,1fr))}.rank-label span{display:none}.rank-button{font-size:11px}.controls .grow{flex-basis:100%}}
+@media(prefers-reduced-motion:no-preference){.button,nav a{transition:background .15s,filter .15s}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="brand"><span class="logo" aria-hidden="true">D6</span><div><strong>Data Ingestion Lab</strong><small>Day 06 · Demo</small></div></div>
+    <nav aria-label="Nội dung demo">
+      <a href="#overview"><span class="nav-icon" aria-hidden="true">▦</span>Tổng quan</a>
+      <a href="#corpus"><span class="nav-icon" aria-hidden="true">▤</span>Dữ liệu &amp; kho tìm kiếm</a>
+      <a href="#benchmark"><span class="nav-icon" aria-hidden="true">◎</span>Câu hỏi &amp; kết quả</a>
+      <a href="#coherence"><span class="nav-icon" aria-hidden="true">▥</span>Độ mạch lạc</a>
+      <a href="#metadata"><span class="nav-icon" aria-hidden="true">◇</span>Nguồn &amp; bộ lọc</a>
+      <a href="#grounding"><span class="nav-icon" aria-hidden="true">▣</span>Độ đủ bằng chứng</a>
+      <a href="#impact"><span class="nav-icon" aria-hidden="true">↗</span>So sánh &amp; Hybrid</a>
+    </nav>
+    <select id="mobile-nav" aria-label="Chọn phần demo"></select>
+    <div class="rail-footer"><span>Gemini + Qdrant</span>Python Standard Library</div>
+  </aside>
+  <main>
+    <header class="top"><strong id="breadcrumb">Tổng quan</strong><span class="status">Kết quả đã lưu</span></header>
+    <div id="view" aria-live="polite"><p>Đang tải kết quả lab…</p></div>
+  </main>
+</div>
+<script>
+"use strict";
+const view = document.querySelector("#view");
+const strategies = ["A", "B", "C", "Hybrid"];
+const labels = {A:"Cửa sổ cố định", B:"Gom theo đoạn", C:"Gom đoạn + lọc", Hybrid:"Cosine + BM25"};
+const topics = {filesystem:"Tệp và thư mục", archive:"Nén và lưu trữ", formats:"Định dạng tệp"};
+const q17 = {
+  question:"Một đối tượng LZMADecompressor có xử lý được nhiều luồng nén nối nhau không?",
+  answer:"Mỗi luồng nén cần một đối tượng LZMADecompressor riêng.",
+  evidence:"Tài liệu nêu giới hạn của lớp LZMADecompressor khi gặp nhiều luồng và chỉ cách xử lý từng luồng bằng một đối tượng riêng."
+};
+const state = {split:"test", question:"q17", sample:0, metadataQuestion:"q18", groundingQuestion:"q17", scope:"archive", evidence:null};
+const navLinks = [...document.querySelectorAll("nav a")];
+const navTitles = Object.fromEntries(navLinks.map(link=>[link.hash.slice(1),link.lastChild.textContent.trim()]));
+const mobileNav = document.querySelector("#mobile-nav");
+mobileNav.replaceChildren(...Object.entries(navTitles).map(([key,title])=>new Option(title,key)));
+mobileNav.addEventListener("change",()=>{location.hash=mobileNav.value;});
+let data;
+let live;
+let waiting = false;
+let liveError = "";
+const escape = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[ch]);
+const tag = (value, kind="") => `<span class="tag ${kind}">${escape(value)}</span>`;
+const number = (value, digits=0) => typeof value === "number" ? value.toLocaleString("vi-VN",{maximumFractionDigits:digits}) : "—";
+function sourceLink(url, label) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === "https:" && parsed.hostname === "docs.python.org") {
+      return `<a href="${escape(parsed.href)}" target="_blank" rel="noopener noreferrer">${escape(label)}</a>`;
+    }
+  } catch {}
+  return escape(label);
+}
+const select = (id, name, items, value) =>
+  `<label class="field grow">${name}<select id="${id}">${items.map(([key,label]) =>
+    `<option value="${escape(key)}"${String(key)===String(value)?" selected":""}>${escape(label)}</option>`).join("")}</select></label>`;
+const pageHead = (title, detail) => `<header class="pagehead"><h1>${title}</h1><p class="lead">${detail}</p></header>`;
+const panel = (title, content) => `<section class="panel"><div class="panel-head"><h2>${title}</h2></div>${content}</section>`;
+const table = (headers, rows) => `<div class="scroll"><table><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join("")}</tr></thead><tbody>
+  ${rows.map(row=>`<tr${row.winner?' class="winner"':""}>${row.cells.map(cell=>`<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+const metricRows = split => data[split+"_metrics"].strategies;
+const traces = (split, id) => data[split+"_traces"].filter(row=>row.id===id);
+const questions = split => data.questions.filter(q=>q.split===split);
+const questionTitle = q => q.id==="q17"?q17.question:q.question;
+const answerText = q => q.id==="q17"?q17.answer:q.expected_answer;
+const questionSelect = (id, split, value) => select(id,"Câu hỏi",questions(split).map(q=>[q.id,q.id+" · "+questionTitle(q)]),value);
+const ncell = value => `<span class="num">${escape(value)}</span>`;
+const counts = (row, field) => ncell(row[field]+"/"+row.questions);
+const splitButtons = () => `<div class="segments" aria-label="Nhóm câu hỏi">${["dev","test"].map(split=>`<button type="button" data-split="${split}" aria-pressed="${state.split===split}">${split==="dev"?"Dev":"Test"} · ${questions(split).length}</button>`).join("")}</div>`;
+
+function metrics(split) {
+  const values=metricRows(split);
+  return table(["Cấu hình","Đủ ở hạng 1","Đủ trong top-3","Truy xuất TB"], strategies.map(s=>({
+    winner:s===data.selection.selected,
+    cells:[`<strong>${s}</strong> <span class="muted">${labels[s]}</span>`,counts(values[s],"hit1"),counts(values[s],"hit3"),ncell(number(values[s].mean_retrieval_ms,3)+" ms")]
+  })));
+}
+
+function overview() {
+  const top = metricRows("test")[data.selection.selected];
+  return `<section class="hero"><div class="hero-copy">
+    <span class="eyebrow">Python ${escape(data.manifest.snapshot)} · Gemini + Qdrant</span>
+    <h1>Hệ thống tìm bằng chứng như thế nào?</h1>
+    <p>Theo dõi một câu hỏi để thấy cách cắt đoạn ảnh hưởng đến bằng chứng và cách Hybrid đưa đoạn phù hợp lên đầu.</p>
+    <div class="hero-actions"><a class="button light" href="#benchmark" data-question="q17">Xem ví dụ q17 <span aria-hidden="true">→</span></a>
+    <a class="button subtle" href="#corpus">Xem dữ liệu gốc</a></div></div></section>
+    <div class="stats">
+      <div class="stat"><strong>${number(data.manifest.count)}</strong><span>Mục nguồn HTML</span></div>
+      <div class="stat"><strong>${number(data.questions.length)}</strong><span>Câu hỏi · ${questions("dev").length} dev / ${questions("test").length} test</span></div>
+      <div class="stat"><strong>${escape(data.selection.selected)}</strong><span>Cách chia chọn trên dev</span></div>
+      <div class="stat"><strong>${top.hit3}/${top.questions}</strong><span>Câu test có đủ bằng chứng trong top-3 của ${escape(data.selection.selected)}</span></div>
+    </div>
+    ${panel("Từ tài liệu đến kết quả",`<ol class="flow">
+      <li><strong>Đọc tài liệu</strong><span>Giữ mục và đường dẫn gốc.</span></li>
+      <li><strong>Chia đoạn</strong><span>Mỗi đoạn nhỏ gọi là chunk.</span></li>
+      <li><strong>Tìm ba đoạn gần nhất</strong><span>Gemini tạo vector, Qdrant xếp hạng.</span></li>
+      <li><strong>Kiểm tra bằng chứng</strong><span>Đối chiếu ba đoạn với trích dẫn chuẩn.</span></li>
+    </ol>`)}
+    <section class="panel"><div class="panel-head"><h2>Bảng điểm theo nhóm câu hỏi</h2></div>
+    <p class="note">Dev dùng để chọn cấu hình. Test dùng để xem kết quả sau khi chốt.</p>
+    <div class="controls">${splitButtons()}</div>${metrics(state.split)}
+    <p class="note">Hit@1 đếm câu có đủ bằng chứng ở hạng đầu. Evidence Hit@3 đếm câu có đủ bằng chứng ở một trong ba hạng đầu.</p></section>`;
+}
+
+function corpus() {
+  const index=data.index;
+  const rows=["A","B","C"].map(s=>{
+    const row=index.strategy[s];
+    return {cells:[tag(s),escape(row.collection),ncell(row.chunks),ncell(row.chunks_after_second_upsert??"Dùng chung B"),
+      ncell(number(row.ingest_seconds??row.incremental_ingest_seconds,3)+" s")]};
+  });
+  return pageHead("Dữ liệu và kho tìm kiếm","Mở một mục tài liệu gốc và xem nó được đưa vào kho tìm kiếm ra sao.") +
+    panel("Dữ liệu đi qua công cụ nào?",`<dl class="facts"><div><dt>Tài liệu nguồn</dt><dd>Python ${escape(data.manifest.snapshot)} · ${data.manifest.count} mục</dd></div>
+      <div><dt>Gemini biến đoạn văn thành dãy số</dt><dd>${escape(index.embedding.model)} · ${index.embedding.dimensions} chiều</dd></div>
+      <div><dt>Qdrant lưu và tìm đoạn gần nghĩa</dt><dd>Qdrant ${escape(index.qdrant_client)} · cosine</dd></div></dl>
+      <p class="note">Mỗi mục HTML có anchor riêng. Trường <code>page</code> là ID vị trí trong module.</p>`) +
+    panel("Nạp lại dữ liệu có tạo bản trùng?",`<p>Mỗi điểm lưu một đoạn cùng vector và thông tin nguồn. Khi ghi lại cùng ID, số điểm của A và B giữ nguyên.</p><details><summary>Xem tên kho và số điểm trước, sau</summary>${table(["Cấu hình","Kho Qdrant","Số điểm","Sau lần nạp thứ hai","Thời gian nạp"],rows)}</details>`) +
+    panel("Manifest · "+data.manifest.sources.length+" module",`<div class="source-list">${data.manifest.sources.map(s=>
+      `<details><summary>${escape(s.source_id)} · ${escape(topics[s.topic]??s.topic)} · ${s.pages.length} mục</summary>
+        <p class="note">${escape(s.license_or_permission)} · ${escape(s.accessed_at)}</p><ul>${s.pages.map(p=>
+        `<li>${sourceLink(s.source_path_or_url+"#"+p.anchor,p.heading)} · mục ${p.page} · ${number(p.characters)} ký tự</li>`).join("")}</ul></details>`).join("")}</div>`);
+}
+
+function excerpt(text, evidence) {
+  if (!evidence || !text.includes(evidence)) return escape(text);
+  const start=text.indexOf(evidence);
+  return escape(text.slice(0,start))+`<mark class="evidence">${escape(evidence)}</mark>`+escape(text.slice(start+evidence.length));
+}
+
+function chunk(hit, rank, evidence, open=false) {
+  const verdict = hit.evidence_hit===undefined ? "" : hit.evidence_hit ? tag("Đủ evidence") : tag("Thiếu evidence","gray");
+  return `<article class="chunk${hit.evidence_hit?" good":""}">
+    <div class="chunk-top"><strong>Hạng ${rank} · ${escape(hit.document_id)} / ${escape(hit.page)}</strong>${verdict}</div>
+    <div class="chunk-meta"><span>${escape(hit.metadata.topic)}</span><span>Điểm ${number(hit.score,4)}</span>
+      ${hit.cosine_rank ? "<span>Cosine #"+hit.cosine_rank+"</span>" : ""}${hit.bm25_rank ? "<span>BM25 #"+hit.bm25_rank+"</span>" : ""}
+      ${sourceLink(hit.source,"Mở nguồn ↗")}</div>
+    <details${open?" open":""}><summary>Đọc đoạn trích</summary><pre class="excerpt">${excerpt(hit.text,evidence)}</pre>
+      <p class="note"><code>${escape(hit.chunk_id)}</code></p></details></article>`;
+}
+
+function benchmark() {
+  const q=questions(state.split).find(q=>q.id===state.question)??questions(state.split)[0];
+  const rows=traces(state.split,q.id);
+  return pageHead("Benchmark","Theo dõi một câu từ bằng chứng chuẩn đến top-3 của từng cấu hình.") +
+    panel("Câu hỏi và bằng chứng chuẩn",`<div class="controls">${splitButtons()}${questionSelect("question",state.split,q.id)}</div>
+      <p class="question">${escape(q.question)}</p>
+      <p><strong>Đáp án dự kiến</strong> · ${escape(q.expected_answer)}</p>
+      <p class="quote">${escape(q.evidence_quote)}</p>
+      <p class="note">${escape(q.gold_source_id)} · mục ${escape(q.gold_page)} · ${q.filter ? "Scope "+escape(q.filter.topic) : "Không yêu cầu scope"}</p>`) +
+    `<div class="columns">${rows.map(row=>panel(row.strategy+" · "+labels[row.strategy],
+      `<div>${tag("Hit@1 "+Number(row.hit1),row.hit1?"":"gray")} ${tag("Hit@3 "+Number(row.hit3),row.hit3?"":"gray")}</div>
+      ${row.hits.map(hit=>chunk(hit,hit.rank,row.evidence_quote,hit.evidence_hit || (row.strategy==="A" && hit.rank===1))).join("")}`)).join("")}</div>`;
+}
+
+function auditSummary(name) {
+  return ["A","B","C"].map(s=>{
+    const items=data[name].filter(item=>item.strategy===s && item.score_0_2!=="");
+    const values=items.map(item=>Number(item.score_0_2));
+    const avg=values.length?values.reduce((a,b)=>a+b,0)/values.length:null;
+    return {s,avg,n:values.length,counts:[0,1,2].map(v=>values.filter(x=>x===v).length)};
+  });
+}
+
+function auditLabel(row) {
+  if (!row) return '<p class="note">Chưa có nhãn audit.</p>';
+  return `<p>${tag(row.score_0_2+"/2")}</p><p class="note">${escape(row.reason)}</p>`;
+}
+
+function coherence() {
+  const positions=data.coherence_samples.filter(row=>row.strategy==="A");
+  const selected=positions[state.sample];
+  const pair=data.coherence_samples.filter(row=>row.document_id===selected.document_id &&
+    row.page===selected.page && row.position===selected.position && row.strategy!=="C");
+  return pageHead("Coherence","Đọc cùng một vị trí nguồn để kiểm tra mỗi cách chia có giữ trọn ý hay không.") +
+    panel("10 vị trí kiểm tra",`<div class="controls">${select("sample","Mẫu",positions.map((p,i)=>
+      [i,`${i+1} · ${p.document_id} / ${p.metadata.section}`]),state.sample)}</div>
+      <p>Vị trí ký tự <strong>${number(selected.position)}</strong> · mục ${selected.page} · ${sourceLink(selected.source,"Mở nguồn ↗")}</p>
+      <p class="note">0 · Khó hiểu. 1 · Hiểu một phần. 2 · Giữ trọn ý. C dùng cùng chunk với B.</p>`) +
+    `<div class="columns">${pair.map(row=>{
+      const audit=data.coherence_audit.find(a=>a.strategy===row.strategy&&a.chunk_id===row.chunk_id&&Number(a.position)===row.position);
+      const position=row.position-row.metadata.start;
+      return panel(row.strategy+" · "+labels[row.strategy],auditLabel(audit)+
+        `<pre class="excerpt">${escape(row.text.slice(0,position))}<mark class="evidence">▏</mark>${escape(row.text.slice(position))}</pre>
+          <p class="note">Biên chunk ${row.metadata.start}–${row.metadata.end}. Vạch đánh dấu vị trí mẫu.</p>`);
+    }).join("")}</div>` +
+    panel("Điểm trung bình đã lưu",table(["Cấu hình","Trung bình /2","Số mẫu"],
+      auditSummary("coherence_audit").map(x=>({cells:[tag(x.s),ncell(number(x.avg,2)),ncell(x.n)]}))));
+}
+
+function metadata() {
+  const rows=data.metadata_audit.filter(row=>row.question_id===state.metadataQuestion);
+  const q=questions("test").find(q=>q.id===state.metadataQuestion);
+  const qscope=q.filter?.topic;
+  const total=["A","B","C"].map(s=>{
+    const items=data.metadata_audit.filter(a=>a.strategy===s);
+    const dev=metricRows("dev")[s],test=metricRows("test")[s];
+    const compliance=m=>m.filter_questions?m.filter_compliant+"/"+m.filter_questions:"N/A";
+    return {cells:[tag(s),ncell(items.filter(a=>a.metadata_ok==="1").length+"/"+items.length),
+      ncell(compliance(dev)),ncell(compliance(test))]};
+  });
+  return pageHead("Metadata","Đối chiếu mục nguồn của các hit và thử tác động của lọc chủ đề B–C.") +
+    panel("Thử filter với Gemini + Qdrant",`<form id="scope-form"><div class="controls">
+      <label class="field grow">Câu hỏi<input name="question" maxlength="400" required value="${escape(state.liveQuestion??data.live_example)}"></label>
+      ${select("scope","Phạm vi C",Object.entries(topics),state.scope)}
+      </div><button class="button" type="submit"${waiting?" disabled":""}>${waiting?"Đang truy xuất…":"So sánh B và C"}</button></form>
+      <p class="note">Mỗi lần thử tạo một vector câu hỏi. B và C đọc cùng collection.</p>
+      ${liveError?`<p class="message" role="alert">${escape(liveError)}</p>`:""}
+      ${live?`<p class="note">${escape(live.question)} · Scope C ${escape(live.topic)}</p>
+        <div class="columns">${Object.entries(live.strategies).map(([s,row])=>`<div><h3>${s} · ${labels[s]}</h3>${row.hits.map((h,i)=>chunk(h,i+1)).join("")}</div>`).join("")}</div>`:""}`) +
+    panel("Audit metadata",`<div class="controls">${questionSelect("metadata-question","test",q.id)}</div>
+      <p class="note">${qscope?"Scope yêu cầu · "+escape(qscope):"Câu hỏi không yêu cầu scope."}</p>`+
+      table(["Cấu hình","Hạng","Tài liệu / mục","Topic","Đủ và đúng","Đúng scope"],rows.map(r=>({cells:[
+        tag(r.strategy),ncell(r.rank),sourceLink(r.source,r.document_id+" / "+r.page),escape(r.topic),
+        r.metadata_ok==="1"?tag("Đạt"):tag("Kiểm tra","warm"),
+        r.topic_match_if_requested===""?"N/A":r.topic_match_if_requested==="1"?tag("Đạt"):tag("Lệch scope","warm")
+      ]})))) +
+    panel("Tổng hợp metadata và filter",table(["Cấu hình","Metadata đủ và đúng","Scope dev","Scope test"],total));
+}
+
+function grounding() {
+  const q=questions("test").find(q=>q.id===state.groundingQuestion);
+  const labelsForQuestion=data.grounding_audit.filter(row=>row.question_id===q.id);
+  return pageHead("Grounding","Đọc cả top-3 để đánh giá bằng chứng có đủ cho câu trả lời và có thể truy về nguồn.") +
+    panel("5 câu test",`<div class="controls">${questionSelect("grounding-question","test",q.id)}</div>
+      <p class="question">${escape(q.question)}</p><p><strong>Đáp án dự kiến</strong> · ${escape(q.expected_answer)}</p>
+      <p class="note">0 · Thiếu bằng chứng. 1 · Có một phần. 2 · Đủ để trả lời và truy nguồn.</p>`) +
+    `<div class="columns three">${traces("test",q.id).filter(row=>row.strategy!=="Hybrid").map(row=>
+      panel(row.strategy+" · "+labels[row.strategy],auditLabel(labelsForQuestion.find(a=>a.strategy===row.strategy))+
+        row.hits.map(hit=>chunk(hit,hit.rank,q.evidence_quote)).join(""))).join("")}</div>` +
+    panel("Phân bố nhãn đã lưu",table(["Cấu hình","Điểm 0","Điểm 1","Điểm 2","Trung bình /2"],
+      auditSummary("grounding_audit").map(x=>({cells:[tag(x.s),...x.counts.map(ncell),ncell(number(x.avg,2))]}))));
+}
+
+function hitRank(row) { return row.hits.find(hit=>hit.evidence_hit)?.rank??"Ngoài top-3"; }
+function impact() {
+  const index=data.index.strategy;
+  const baseline=metricRows("test").C, hybrid=metricRows("test").Hybrid;
+  const rows=["A","B","C"].map(s=>({cells:[tag(s),ncell(index[s].chunks),
+    ncell(index[s].characters==null?"Dùng chung B":number(index[s].characters)),
+    ncell(number(index[s].ingest_seconds??index[s].incremental_ingest_seconds,3)+" s"),
+    counts(metricRows("dev")[s],"hit3"),counts(metricRows("test")[s],"hit3")]}));
+  const cases=[["dev","q08"],["dev","q12"],["test","q17"]].map(([split,id])=>{
+    const group=traces(split,id);
+    return {cells:[`<a href="#benchmark" data-question="${id}">${id}</a>`,escape(split),
+      ncell(hitRank(group.find(row=>row.strategy==="C"))),
+      ncell(hitRank(group.find(row=>row.strategy==="Hybrid")))]};
+  });
+  return pageHead("So sánh & Hybrid","A–B đo tác động của cách chia đoạn. B–C đo tác động của lọc chủ đề.") +
+    panel("Chi phí tài nguyên và Evidence Hit@3",table(["Cấu hình","Chunk","Ký tự lưu","Ingest","Dev Hit@3","Test Hit@3"],rows)+
+      `<p class="note">A dùng cửa sổ ${data.index.settings.size} ký tự, overlap ${data.index.settings.overlap_a}. B gom đoạn tới cùng giới hạn. C dùng lại index B. Thời gian ingest bao gồm thời gian chờ API.</p>
+      <p class="note">B được chốt theo Evidence Hit@3 dev, rồi Hit@1, rồi ưu tiên B → C → A khi hòa.</p>`) +
+    panel("Hybrid · Cosine + BM25",`<p>Giữ chunk và scope của C. Gộp ${data.index.settings.hybrid_candidates} ứng viên mỗi nhánh bằng RRF với k = ${data.index.settings.rrf_k}.</p>`+
+      table(["Câu hỏi","Tập","Hạng evidence của C","Hạng evidence của Hybrid"],cases)+
+      `<p class="note">Trên test, Hit@1 từ ${baseline.hit1}/${baseline.questions} lên ${hybrid.hit1}/${hybrid.questions}. Evidence Hit@3 từ ${baseline.hit3}/${baseline.questions} đến ${hybrid.hit3}/${hybrid.questions}. Tập test có 5 câu đã dùng lại.</p>`);
+}
+
+const pages={overview,corpus,benchmark,coherence,metadata,grounding,impact};
+function render() {
+  if (!data) return;
+  const requested=location.hash.slice(1);
+  const page=Object.hasOwn(pages,requested)?requested:"overview";
+  for (const link of document.querySelectorAll("nav a")) {
+    if (link.hash==="#"+page) {
+      link.setAttribute("aria-current","page");
+      document.querySelector("#breadcrumb").textContent=link.textContent.replace(link.firstElementChild.textContent,"").trim();
+    } else link.removeAttribute("aria-current");
+  }
+  view.innerHTML=pages[page]();
+}
+window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0);});
+view.addEventListener("click",event=>{
+  const button=event.target.closest("[data-split]");
+  if (button) {
+    state.split=button.dataset.split;
+    if (!questions(state.split).some(q=>q.id===state.question)) state.question=state.split==="test"?"q17":questions("dev")[0].id;
+    render();
+    view.querySelector(`[data-split="${state.split}"]`)?.focus();
+  }
+  const question=event.target.closest("[data-question]");
+  if (question) {
+    state.question=question.dataset.question;
+    state.split=data.questions.find(q=>q.id===state.question).split;
+    if (location.hash==="#benchmark") render();
+  }
+});
+view.addEventListener("change",event=>{
+  const key={question:"question",sample:"sample","metadata-question":"metadataQuestion","grounding-question":"groundingQuestion",scope:"scope"}[event.target.id];
+  if (key) {
+    state[key]=event.target.value;
+    if (key==="scope") return;
+    render();
+    document.getElementById(event.target.id)?.focus();
+  }
+});
+view.addEventListener("input",event=>{if (event.target.name==="question") state.liveQuestion=event.target.value;});
+view.addEventListener("submit",async event=>{
+  if (event.target.id!=="scope-form") return;
+  event.preventDefault();
+  if (waiting) return;
+  const question=new FormData(event.target).get("question").trim();
+  if (!question) { liveError="Nhập câu hỏi để thử filter."; render(); return; }
+  const topic=state.scope;
+  waiting=true;
+  live=null;
+  liveError="";
+  render();
+  try {
+    const response=await fetch("/api/scope",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question,topic})});
+    const payload=await response.json();
+    if (!response.ok) throw new Error(payload.error);
+    live={...payload,question,topic};
+  } catch (error) {
+    liveError=error.message||"Không truy xuất được. Bạn vẫn có thể mở audit đã lưu bên dưới.";
+  } finally {
+    waiting=false;
+    render();
+  }
+});
+fetch("/api/results").then(async response=>{
+  const payload=await response.json();
+  if (!response.ok) throw new Error(payload.error);
+  data=payload;
+  render();
+}).catch(error=>{view.textContent=error.message||"Không đọc được kết quả lab.";});
+</script>
+</body>
+</html>

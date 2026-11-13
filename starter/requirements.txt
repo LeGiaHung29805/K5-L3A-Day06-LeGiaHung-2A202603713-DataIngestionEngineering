@@ -1,4 +1,7 @@
-# Core setup and PDF parsing. Choose and install an embedding SDK separately.
+# Gemini + Qdrant local
+qdrant-client==1.19.1
+python-dotenv>=1,<2
+
+# Dependencies for the original PostgreSQL setup and PDF parsing
 psycopg[binary]==3.3.8
 pypdf>=5,<7
-python-dotenv>=1,<2

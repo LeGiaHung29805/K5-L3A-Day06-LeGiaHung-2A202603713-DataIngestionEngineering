@@ -1,1 +1,1 @@
-"""Day 06 student starter: implementation required."""
+"""Day 06 document ingestion and retrieval lab."""
