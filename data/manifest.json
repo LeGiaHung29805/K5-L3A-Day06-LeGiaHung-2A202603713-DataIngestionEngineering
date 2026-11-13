@@ -1,0 +1,350 @@
+{
+  "snapshot": "3.12.10",
+  "unit_rule": "One distinct, substantive HTML section per source anchor. The numeric page ID is its 1-based position in the fixed module selection, not a physical page number.",
+  "count": 35,
+  "pages_sha256": "28bc883469735acbc0ac5a8c335eaf31901352dba27a94a080687598918fbc8c",
+  "sources": [
+    {
+      "source_id": "pathlib",
+      "title": "Python Standard Library — pathlib",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/pathlib.html",
+      "topic": "filesystem",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/filesys.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "basic-use",
+          "heading": "Basic use",
+          "characters": 806
+        },
+        {
+          "page": 2,
+          "anchor": "general-properties",
+          "heading": "General properties",
+          "characters": 739
+        },
+        {
+          "page": 3,
+          "anchor": "operators",
+          "heading": "Operators",
+          "characters": 1309
+        },
+        {
+          "page": 4,
+          "anchor": "accessing-individual-parts",
+          "heading": "Accessing individual parts",
+          "characters": 429
+        },
+        {
+          "page": 5,
+          "anchor": "expanding-and-resolving-paths",
+          "heading": "Expanding and resolving paths",
+          "characters": 1955
+        },
+        {
+          "page": 6,
+          "anchor": "querying-file-type-and-status",
+          "heading": "Querying file type and status",
+          "characters": 4419
+        },
+        {
+          "page": 7,
+          "anchor": "reading-and-writing-files",
+          "heading": "Reading and writing files",
+          "characters": 1606
+        },
+        {
+          "page": 8,
+          "anchor": "reading-directories",
+          "heading": "Reading directories",
+          "characters": 7217
+        },
+        {
+          "page": 9,
+          "anchor": "creating-files-and-directories",
+          "heading": "Creating files and directories",
+          "characters": 2262
+        },
+        {
+          "page": 10,
+          "anchor": "renaming-and-deleting",
+          "heading": "Renaming and deleting",
+          "characters": 1744
+        }
+      ]
+    },
+    {
+      "source_id": "glob",
+      "title": "Python Standard Library — glob",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/glob.html",
+      "topic": "filesystem",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/filesys.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "module-glob",
+          "heading": "glob — Unix style pathname pattern expansion",
+          "characters": 4607
+        }
+      ]
+    },
+    {
+      "source_id": "fnmatch",
+      "title": "Python Standard Library — fnmatch",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/fnmatch.html",
+      "topic": "filesystem",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/filesys.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "module-fnmatch",
+          "heading": "fnmatch — Unix filename pattern matching",
+          "characters": 2631
+        }
+      ]
+    },
+    {
+      "source_id": "shutil",
+      "title": "Python Standard Library — shutil",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/shutil.html",
+      "topic": "filesystem",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/filesys.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "platform-dependent-efficient-copy-operations",
+          "heading": "Platform-dependent efficient copy operations",
+          "characters": 880
+        },
+        {
+          "page": 2,
+          "anchor": "querying-the-size-of-the-output-terminal",
+          "heading": "Querying the size of the output terminal",
+          "characters": 1023
+        }
+      ]
+    },
+    {
+      "source_id": "tempfile",
+      "title": "Python Standard Library — tempfile",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/tempfile.html",
+      "topic": "filesystem",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/filesys.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "examples",
+          "heading": "Examples",
+          "characters": 1180
+        }
+      ]
+    },
+    {
+      "source_id": "zipfile",
+      "title": "Python Standard Library — zipfile",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/zipfile.html",
+      "topic": "archive",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/archiving.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "zipfile-objects",
+          "heading": "ZipFile Objects",
+          "characters": 13061
+        },
+        {
+          "page": 2,
+          "anchor": "path-objects",
+          "heading": "Path Objects",
+          "characters": 3367
+        },
+        {
+          "page": 3,
+          "anchor": "zipinfo-objects",
+          "heading": "ZipInfo Objects",
+          "characters": 2688
+        },
+        {
+          "page": 4,
+          "anchor": "command-line-interface",
+          "heading": "Command-Line Interface",
+          "characters": 1115
+        }
+      ]
+    },
+    {
+      "source_id": "tarfile",
+      "title": "Python Standard Library — tarfile",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/tarfile.html",
+      "topic": "archive",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/archiving.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "tarinfo-objects",
+          "heading": "TarInfo Objects",
+          "characters": 4923
+        },
+        {
+          "page": 2,
+          "anchor": "supported-tar-formats",
+          "heading": "Supported tar formats",
+          "characters": 1942
+        },
+        {
+          "page": 3,
+          "anchor": "unicode-issues",
+          "heading": "Unicode issues",
+          "characters": 1819
+        }
+      ]
+    },
+    {
+      "source_id": "gzip",
+      "title": "Python Standard Library — gzip",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/gzip.html",
+      "topic": "archive",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/archiving.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "examples-of-usage",
+          "heading": "Examples of usage",
+          "characters": 768
+        }
+      ]
+    },
+    {
+      "source_id": "bz2",
+      "title": "Python Standard Library — bz2",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/bz2.html",
+      "topic": "archive",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/archiving.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "de-compression-of-files",
+          "heading": "(De)compression of files",
+          "characters": 4189
+        },
+        {
+          "page": 2,
+          "anchor": "incremental-de-compression",
+          "heading": "Incremental (de)compression",
+          "characters": 2569
+        }
+      ]
+    },
+    {
+      "source_id": "lzma",
+      "title": "Python Standard Library — lzma",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/lzma.html",
+      "topic": "archive",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/archiving.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "compressing-and-decompressing-data-in-memory",
+          "heading": "Compressing and decompressing data in memory",
+          "characters": 6375
+        },
+        {
+          "page": 2,
+          "anchor": "examples",
+          "heading": "Examples",
+          "characters": 1184
+        }
+      ]
+    },
+    {
+      "source_id": "csv",
+      "title": "Python Standard Library — csv",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/csv.html",
+      "topic": "formats",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/fileformats.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "module-contents",
+          "heading": "Module Contents",
+          "characters": 11114
+        },
+        {
+          "page": 2,
+          "anchor": "dialects-and-formatting-parameters",
+          "heading": "Dialects and Formatting Parameters",
+          "characters": 2357
+        },
+        {
+          "page": 3,
+          "anchor": "reader-objects",
+          "heading": "Reader Objects",
+          "characters": 928
+        },
+        {
+          "page": 4,
+          "anchor": "writer-objects",
+          "heading": "Writer Objects",
+          "characters": 1537
+        }
+      ]
+    },
+    {
+      "source_id": "configparser",
+      "title": "Python Standard Library — configparser",
+      "source_path_or_url": "https://docs.python.org/release/3.12.10/library/configparser.html",
+      "topic": "formats",
+      "metadata_source": "https://docs.python.org/release/3.12.10/library/fileformats.html",
+      "license_or_permission": "PSF License Version 2 (data/NOTICE.md)",
+      "accessed_at": "2026-11-13",
+      "pages": [
+        {
+          "page": 1,
+          "anchor": "quick-start",
+          "heading": "Quick Start",
+          "characters": 3254
+        },
+        {
+          "page": 2,
+          "anchor": "supported-datatypes",
+          "heading": "Supported Datatypes",
+          "characters": 1075
+        },
+        {
+          "page": 3,
+          "anchor": "fallback-values",
+          "heading": "Fallback Values",
+          "characters": 1287
+        },
+        {
+          "page": 4,
+          "anchor": "interpolation-of-values",
+          "heading": "Interpolation of values",
+          "characters": 2377
+        }
+      ]
+    }
+  ]
+}

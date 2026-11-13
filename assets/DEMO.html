@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 06 · Demo Data Ingestion Engineering</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3ed;
+      --white: #fffefa;
+      --ink: #182b2e;
+      --muted: #506263;
+      --line: #d6ded6;
+      --green: #1e5a49;
+      --mint: #e5f1e9;
+      --orange: #8b4128;
+      --peach: #f9e8dc;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 Inter, "Segoe UI", sans-serif;
+    }
+    main, .header-inner { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    header { background: #172f2e; color: #faf7ec; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 0; }
+    .header-inner p { margin: 0; }
+    .header-inner strong { font-weight: 650; }
+    .offline { color: #d5e6d6; font-size: .84rem; }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 24px 0 20px; }
+    button {
+      font: inherit;
+      font-weight: 650;
+      color: inherit;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 9px 14px;
+      cursor: pointer;
+    }
+    button:hover:not(:disabled) { border-color: var(--green); }
+    button:disabled { cursor: default; opacity: .48; }
+    :focus-visible { outline: 3px solid #a04e2d; outline-offset: 4px; }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 10px;
+      text-align: left;
+      font-size: .87rem;
+    }
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      background: var(--mint);
+      color: var(--green);
+      font-size: .78rem;
+    }
+    .step[aria-current="step"] { color: #fff; background: var(--green); border-color: var(--green); }
+    .panel {
+      padding: clamp(22px, 4vw, 44px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    h1, h2, h3, p, pre, blockquote { margin: 0; }
+    h1, h2 { font-weight: 650; letter-spacing: -.025em; line-height: 1.15; }
+    h1:focus, h2:focus { outline: none; }
+    h1 { font-size: clamp(2rem, 5vw, 3.35rem); max-width: 900px; }
+    h2 { font-size: clamp(1.85rem, 4vw, 2.65rem); }
+    h3 { font-size: 1.08rem; line-height: 1.35; }
+    .lead { margin-top: 12px; max-width: 76ch; color: var(--muted); }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+    .card { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 10px; }
+    .card > * + * { margin-top: 10px; }
+    .data { background: #203d38; color: #f6f9eb; border-color: #203d38; }
+    .data pre { font-size: 1.23rem; line-height: 1.55; }
+    .label { font-size: .81rem; color: var(--muted); }
+    .data .label { color: #d6e6d9; }
+    .callout { margin-top: 18px; padding: 12px 16px; background: var(--mint); border-left: 4px solid var(--green); }
+    .callout > p + p { margin-top: 5px; }
+    .action { background: var(--green); color: #fff; border-color: var(--green); }
+    .action:hover:not(:disabled) { background: #17483a; }
+    pre, code { font-family: "IBM Plex Mono", Consolas, monospace; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .88rem; line-height: 1.6; }
+    a { color: var(--green); text-underline-offset: .18em; }
+    summary { color: var(--green); font-weight: 650; cursor: pointer; }
+    details { margin-top: 16px; }
+    details > :not(summary) { margin-top: 10px; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0; margin: 22px 0 0; list-style: none; }
+    .flow li { padding: 13px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); }
+    .flow strong { display: block; color: var(--green); }
+    .flow span { font-size: .87rem; }
+    .source-text { font-size: 1.05rem; }
+    .chart { margin: 18px 0 0; padding: 12px 15px; border: 1px solid var(--line); border-radius: 9px; }
+    .chart figcaption { margin-bottom: 8px; color: var(--muted); font-size: .85rem; }
+    .range { display: grid; grid-template-columns: 6.8rem minmax(80px, 1fr) 7.5rem; align-items: center; gap: 10px; margin: 5px 0; }
+    .range span { font-size: .83rem; }
+    .range code { font-size: .82rem; white-space: nowrap; }
+    .track { position: relative; background: #eeeee6; border-radius: 4px; height: 10px; }
+    .track i {
+      position: absolute;
+      inset-block: 0;
+      left: calc(100% * var(--start) / 928);
+      width: calc(100% * (var(--end) - var(--start)) / 928);
+      border-radius: inherit;
+      background: var(--green);
+    }
+    .track .cut { background: #aa5635; }
+    .track .gold { background: #796118; }
+    .result h3 { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+    .status { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: .83rem; }
+    .miss { background: var(--peach); color: var(--orange); }
+    .hit { background: var(--mint); color: var(--green); }
+    .excerpt { border-left: 3px solid var(--line); padding-left: 10px; }
+    mark { background: #f8e9ad; color: var(--ink); }
+    .table-wrap { overflow-x: auto; }
+    .panel > .table-wrap { margin-top: 15px; }
+    table { border-collapse: collapse; width: 100%; text-align: left; }
+    th, td { padding: 9px 11px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    thead th { background: var(--paper); font-size: .86rem; }
+    caption { text-align: left; color: var(--muted); font-size: .88rem; padding-bottom: 8px; }
+    tr.excluded { background: var(--peach); }
+    fieldset { margin: 18px 0 0; padding: 0; border: 0; }
+    legend { font-weight: 650; margin-bottom: 8px; padding: 0; }
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .choice {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    input[type="radio"] { margin: 0; accent-color: var(--green); }
+    .choice:has(:checked) { border-color: var(--green); background: var(--mint); }
+    .hint { margin-top: 9px; color: var(--muted); font-size: .9rem; }
+    .footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 16px 0; }
+    .footer p { color: var(--muted); font-size: .85rem; }
+    .credits { color: var(--muted); font-size: .77rem; margin: 0 0 18px; }
+    @media (max-width: 760px) {
+      main, .header-inner { width: calc(100% - 28px); }
+      .steps { display: flex; overflow-x: auto; padding: 4px 4px 6px; margin: 14px -4px; }
+      .step { flex-shrink: 0; }
+      .split { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr 1fr; }
+      .panel { border-radius: 12px; }
+      .header-inner { gap: 8px; flex-wrap: wrap; }
+    }
+    @media (max-width: 410px) {
+      .range { grid-template-columns: 4.1rem minmax(35px, 1fr) 5.6rem; gap: 5px; }
+      .range span, .range code { font-size: .73rem; }
+      .footer p { display: none; }
+      th, td { padding: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <p><strong>Day 06</strong> · Data Ingestion Engineering</p>
+      <p class="offline">Trình chiếu offline · Kết quả đã lưu</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="steps" aria-label="Các bước demo">
+      <button class="step" data-step="0" aria-controls="question" aria-current="step"><span>1</span>Câu hỏi</button>
+      <button class="step" data-step="1" aria-controls="source"><span>2</span>Đọc và lưu</button>
+      <button class="step" data-step="2" aria-controls="chunks"><span>3</span>So sánh chunk</button>
+      <button class="step" data-step="3" aria-controls="metadata"><span>4</span>Lọc metadata</button>
+      <button class="step" data-step="4" aria-controls="benchmark"><span>5</span>Đo kết quả</button>
+    </nav>
+
+    <section id="question" class="panel" aria-labelledby="question-title">
+      <h1 id="question-title" tabindex="-1">Một dòng CSV có phải lúc nào cũng là một bản ghi?</h1>
+      <p class="lead">Mục tiêu của lab là biến tài liệu thành dữ liệu có thể tìm kiếm, rồi đo xem cách chuẩn bị nào giúp AI lấy được đoạn đủ để trả lời và kiểm chứng.</p>
+      <div class="split">
+        <div class="card data">
+          <h3>Mẫu CSV gồm hai dòng vật lý</h3>
+          <pre><code>1,"Hà Nội
+Việt Nam"</code></pre>
+          <p class="label">Dấu ngoặc kép bao cả trường chứa ký tự xuống dòng.</p>
+        </div>
+        <div class="card">
+          <h3>Hỏi cả lớp trước khi bấm</h3>
+          <p>Sau khi đọc hết mẫu trên bằng <code>csv.reader</code>, ta nhận được mấy bản ghi? <code>reader.line_num</code> bằng bao nhiêu?</p>
+          <button id="reveal-answer" type="button" class="action" aria-expanded="false" aria-controls="answer">Xem kết quả</button>
+          <p id="answer" class="callout" hidden><strong>1 bản ghi · <code>line_num = 2</code></strong><br>Một trường có thể chứa ký tự xuống dòng. <code>line_num</code> đếm số dòng nguồn đã đọc.</p>
+        </div>
+      </div>
+      <noscript><p class="callout">Mẫu có 1 bản ghi và <code>line_num = 2</code>. Bật JavaScript để chuyển bước trong demo.</p></noscript>
+    </section>
+
+    <section id="source" class="panel" aria-labelledby="source-title" hidden>
+      <h2 id="source-title" tabindex="-1">Từ tài liệu gốc đến đoạn có thể truy xuất</h2>
+      <p class="lead">Lab xử lý 35 mục HTML của Python Standard Library 3.12.10. Theo dõi một đoạn trong mục <strong>Reader Objects</strong> của module <code>csv</code>.</p>
+      <ol class="flow">
+        <li><strong>Đọc HTML</strong><span>Lấy nội dung theo anchor <code>reader-objects</code>.</span></li>
+        <li><strong>Chuẩn hóa</strong><span>Chuẩn hóa Unicode và khoảng trắng, giữ ranh giới đoạn.</span></li>
+        <li><strong>Chia chunk</strong><span>Chia thành các đoạn nhỏ và giữ nguồn, vị trí, chủ đề.</span></li>
+        <li><strong>Tạo vector và lưu</strong><span>Gemini tạo vector 768 chiều. Qdrant lưu vector, văn bản và metadata.</span></li>
+      </ol>
+      <div class="split">
+        <div class="card">
+          <h3>Đoạn cần tìm trong tài liệu</h3>
+          <blockquote class="source-text" lang="en">The number of lines read from the source iterator. This is not the same as the number of records returned, as records can span multiple lines.</blockquote>
+          <p><a href="https://docs.python.org/release/3.12.10/library/csv.html#reader-objects">Mở mục Reader Objects trên docs.python.org</a></p>
+        </div>
+        <div class="card">
+          <h3>Metadata của chunk chứa đoạn này</h3>
+          <pre><code>document_id   csv
+page          3
+topic         formats
+section       reader-objects
+start / end   553 / 928</code></pre>
+          <p class="label"><code>page</code> là số thứ tự mục trong module. <code>source</code> lưu URL kèm anchor ở bên cạnh.</p>
+        </div>
+      </div>
+      <p class="callout">Khi tìm, pipeline tạo vector cho câu hỏi rồi dùng độ tương đồng cosine để xếp hạng các chunk.</p>
+      <details>
+        <summary>Xem số đoạn đã lưu</summary>
+        <p>Qdrant lưu 185 điểm cho A và 197 điểm cho B. Ghi lại bằng cùng ID giữ nguyên số điểm. C dùng chung index của B. <a href="../results/index.json">Kết quả tạo index</a> · <a href="../data/manifest.json">Manifest corpus</a></p>
+      </details>
+    </section>
+
+    <section id="chunks" class="panel" aria-labelledby="chunks-title" hidden>
+      <h2 id="chunks-title" tabindex="-1">Ranh giới chunk có thể làm mất bằng chứng</h2>
+      <p class="lead"><strong>q15</strong> · Vì sao <code>csvreader.line_num</code> có thể lớn hơn số bản ghi đã đọc? Cả hai chiến lược đưa mục <code>csv</code> số 3 lên hạng 1.</p>
+      <figure class="chart">
+        <figcaption>Vị trí ký tự trong cùng mục dài 928 ký tự. Mỗi khoảng gồm vị trí đầu và loại trừ vị trí cuối.</figcaption>
+        <div class="range"><span>Bằng chứng</span><div class="track" aria-hidden="true"><i class="gold" style="--start: 553; --end: 695"></i></div><code>[553, 695)</code></div>
+        <div class="range"><span>A · Hạng 1</span><div class="track" aria-hidden="true"><i class="cut" style="--start: 0; --end: 650"></i></div><code>[0, 650)</code></div>
+        <div class="range"><span>A · Hạng 2</span><div class="track" aria-hidden="true"><i class="cut" style="--start: 585; --end: 928"></i></div><code>[585, 928)</code></div>
+        <div class="range"><span>B · Hạng 1</span><div class="track" aria-hidden="true"><i style="--start: 553; --end: 928"></i></div><code>[553, 928)</code></div>
+      </figure>
+      <div class="split">
+        <div class="card result">
+          <h3>A · Cắt cố định <span class="status miss">0/3 đoạn đủ bằng chứng</span></h3>
+          <p class="label">Cửa sổ 650 ký tự, lặp lại 65 ký tự giữa hai đoạn liền nhau.</p>
+          <blockquote class="excerpt" lang="en">… The number of lines read from the source iterator. This is not the same as the number of records …</blockquote>
+          <p>Hạng 1 bị cắt trước lý do. Hạng 2 có lý do nhưng thiếu đầu câu.</p>
+        </div>
+        <div class="card result">
+          <h3>B · Gom theo đoạn <span class="status hit">1/3 đoạn đủ bằng chứng</span></h3>
+          <p class="label">Gom theo ranh giới đoạn, tối đa 650 ký tự mỗi chunk.</p>
+          <blockquote class="excerpt" lang="en">The number of lines read from the source iterator. This is not the same as the number of records returned, <mark>as records can span multiple lines.</mark></blockquote>
+          <p>Hạng 1 giữ trọn cách đếm và lý do một bản ghi có thể đi qua nhiều dòng.</p>
+        </div>
+      </div>
+      <p class="callout">Cho cả lớp chỉ ra vế giải thích. Benchmark tính một hit khi <strong>một chunk</strong> đúng nguồn, đúng mục và chứa đủ bằng chứng. <a href="../results/dev_traces.json">Trace q15</a></p>
+    </section>
+
+    <section id="metadata" class="panel" aria-labelledby="metadata-title" hidden>
+      <h2 id="metadata-title" tabindex="-1">Metadata giới hạn nơi hệ thống tìm</h2>
+      <p class="lead"><strong>q02</strong> · <code>PurePath.parts</code> trả về kiểu dữ liệu gì? Thử đặt phạm vi <code>filesystem</code> như khi người dùng chỉ muốn tìm trong tài liệu hệ thống tệp.</p>
+      <fieldset>
+        <legend>Phạm vi người dùng chọn</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="scope" value="all" checked>Tất cả chủ đề (B)</label>
+          <label class="choice"><input type="radio" name="scope" value="filesystem">Chỉ hệ thống tệp (C)</label>
+        </div>
+      </fieldset>
+      <div class="table-wrap">
+        <table>
+          <caption>Thử điều kiện lọc trên 3 ứng viên đã lưu của B. Khi chạy C thật, Qdrant lọc toàn bộ collection B trước khi lấy top-3.</caption>
+          <thead><tr><th scope="col">Hạng gốc B</th><th scope="col">Mục nguồn</th><th scope="col"><code>topic</code></th><th scope="col">Đủ điều kiện?</th></tr></thead>
+          <tbody>
+            <tr data-topic="filesystem"><td>1</td><td><code>pathlib</code> · Mục 4</td><td><code>filesystem</code></td><td>Được xét</td></tr>
+            <tr data-topic="filesystem"><td>2</td><td><code>pathlib</code> · Mục 2</td><td><code>filesystem</code></td><td>Được xét</td></tr>
+            <tr data-topic="archive"><td>3</td><td><code>zipfile</code> · Mục 2</td><td><code>archive</code></td><td>Được xét</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="scope-result" class="callout" role="status">B xét ứng viên từ mọi chủ đề. Trong ba hit này có cả <code>filesystem</code> và <code>archive</code>.</p>
+      <details>
+        <summary>Xem câu có filter thật trong benchmark</summary>
+        <p>Ở q08, phạm vi đầu vào là <code>archive</code>. B và C đều trả <code>lzma</code>, <code>zipfile</code>, <code>zipfile</code> theo cùng thứ tự. Cả ba kết quả của B đã thuộc <code>archive</code>. <a href="../results/dev_traces.json">Trace q02 và q08</a></p>
+      </details>
+    </section>
+
+    <section id="benchmark" class="panel" aria-labelledby="benchmark-title" hidden>
+      <h2 id="benchmark-title" tabindex="-1">Đo trước khi chọn cách chuẩn bị dữ liệu</h2>
+      <p class="lead">Dùng cùng corpus, model và câu hỏi cho A, B, C. <strong>Hit@1</strong> đếm câu có bằng chứng đầy đủ ngay hạng 1. <strong>Evidence Hit@3</strong> đếm câu có ít nhất một đoạn đủ bằng chứng trong ba hạng đầu.</p>
+      <fieldset>
+        <legend>Hai tập câu hỏi</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="split" value="dev" checked>Dev · Chọn cấu hình</label>
+          <label class="choice"><input type="radio" name="split" value="test">Test · Kiểm tra cấu hình đã chốt</label>
+        </div>
+      </fieldset>
+      <div class="table-wrap" data-split="dev">
+        <table>
+          <caption>Dev · 15 câu hỏi</caption>
+          <thead><tr><th scope="col">Chiến lược</th><th scope="col">Hit@1</th><th scope="col">Evidence Hit@3</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A · Cắt cố định</th><td>8/15</td><td>10/15</td></tr>
+            <tr><th scope="row">B · Gom theo đoạn</th><td>11/15</td><td><strong>15/15</strong></td></tr>
+            <tr><th scope="row">C · B + bộ lọc</th><td>11/15</td><td>15/15</td></tr>
+          </tbody>
+        </table>
+        <p class="callout"><strong>Chốt B trên dev.</strong> Quy tắc ưu tiên Evidence Hit@3, rồi Hit@1, rồi thứ tự B, C, A khi hòa. <a href="../results/dev_metrics.json">Điểm dev</a> · <a href="../results/selection.json">Bản chốt cấu hình</a></p>
+      </div>
+      <div class="table-wrap" data-split="test" hidden>
+        <table>
+          <caption>Test · 5 câu hỏi</caption>
+          <thead><tr><th scope="col">Chiến lược</th><th scope="col">Hit@1</th><th scope="col">Evidence Hit@3</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A · Cắt cố định</th><td>2/5</td><td>4/5</td></tr>
+            <tr><th scope="row">B · Gom theo đoạn</th><td>3/5</td><td><strong>5/5</strong></td></tr>
+            <tr><th scope="row">C · B + bộ lọc</th><td>3/5</td><td>5/5</td></tr>
+          </tbody>
+        </table>
+        <p class="callout"><strong>B đạt 5/5 Evidence Hit@3.</strong> C hòa B. Các kết quả của B đã đúng phạm vi ở những câu có filter. Đây là lượt Gemini trên bộ test 5 câu từng dùng với Ollama. <a href="../results/test_metrics.json">Điểm test</a></p>
+      </div>
+      <details>
+        <summary>Kiểm tra thêm trước khi kết luận</summary>
+        <ul>
+          <li><strong>Mạch lạc.</strong> Đọc chunk của A/B ở cùng 10 vị trí và chấm xem mỗi đoạn có giữ trọn ý. <a href="../results/coherence_audit.csv">Bảng coherence</a></li>
+          <li><strong>Metadata.</strong> Mở lại nguồn của top-3 và đối chiếu mục, chủ đề. <a href="../results/metadata_audit.csv">Bảng metadata</a></li>
+          <li><strong>Grounding.</strong> Đọc cả top-3 trên 5 câu test để xem bằng chứng có đủ cho câu trả lời và truy được nguồn. <a href="../results/grounding_audit.csv">Bảng grounding</a></li>
+          <li><strong>Đánh đổi.</strong> B có nhiều chunk hơn A (197 so với 185) nhưng lưu ít ký tự hơn (100.403 so với 110.486). Phần chồng lặp làm A lặp nội dung giữa các đoạn. <a href="../results/index.json">Số đo index</a></li>
+        </ul>
+      </details>
+    </section>
+
+    <div class="footer">
+      <button id="previous" type="button" disabled>← Quay lại</button>
+      <p>Dùng phím ← và → để chuyển bước</p>
+      <button id="next" type="button" class="action">Tiếp theo →</button>
+    </div>
+    <p class="credits">Trích từ tài liệu Python 3.12.10, © 2001–2025 Python Software Foundation. <a href="../data/NOTICE.md">Ghi công và giấy phép</a></p>
+  </main>
+
+  <script>
+    const steps = Array.from(document.querySelectorAll("[data-step]"));
+    const panels = steps.map(button => document.getElementById(button.getAttribute("aria-controls")));
+    const previous = document.getElementById("previous");
+    const next = document.getElementById("next");
+    let activeStep = 0;
+
+    function showStep(index) {
+      if (index < 0 || index >= steps.length || index === activeStep) return;
+
+      panels[activeStep].hidden = true;
+      steps[activeStep].removeAttribute("aria-current");
+      activeStep = index;
+      panels[activeStep].hidden = false;
+      steps[activeStep].setAttribute("aria-current", "step");
+      previous.disabled = activeStep === 0;
+      next.disabled = activeStep === steps.length - 1;
+      steps[activeStep].scrollIntoView({ block: "nearest", inline: "nearest" });
+      panels[activeStep].querySelector("h1, h2").focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+    }
+
+    steps.forEach((button, index) => button.addEventListener("click", () => showStep(index)));
+    previous.addEventListener("click", () => showStep(activeStep - 1));
+    next.addEventListener("click", () => showStep(activeStep + 1));
+    document.addEventListener("keydown", event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.target instanceof Element && event.target.closest("input, select, textarea")) return;
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        showStep(activeStep + (event.key === "ArrowLeft" ? -1 : 1));
+      }
+    });
+
+    const reveal = document.getElementById("reveal-answer");
+    const answer = document.getElementById("answer");
+    reveal.addEventListener("click", () => {
+      answer.hidden = !answer.hidden;
+      reveal.setAttribute("aria-expanded", String(!answer.hidden));
+      reveal.textContent = answer.hidden ? "Xem kết quả" : "Ẩn kết quả";
+    });
+
+    const candidates = document.querySelectorAll("[data-topic]");
+    const scopeResult = document.getElementById("scope-result");
+    const allTopicsMessage = scopeResult.textContent;
+    function showScope(scope) {
+      candidates.forEach(row => {
+        const included = scope === "all" || scope === row.dataset.topic;
+        row.classList.toggle("excluded", !included);
+        row.lastElementChild.textContent = included ? "Được xét" : "Ngoài phạm vi";
+      });
+      scopeResult.textContent = scope === "all" ? allTopicsMessage :
+        "C loại ứng viên zipfile vì topic = archive. Hai ứng viên pathlib vẫn đủ điều kiện.";
+    }
+
+    document.querySelectorAll('input[name="scope"]').forEach(radio => {
+      radio.addEventListener("change", () => showScope(radio.value));
+    });
+    showScope(document.querySelector('input[name="scope"]:checked').value);
+
+    const splitTables = document.querySelectorAll("[data-split]");
+    function showSplit(split) {
+      splitTables.forEach(table => { table.hidden = table.dataset.split !== split; });
+    }
+
+    document.querySelectorAll('input[name="split"]').forEach(radio => {
+      radio.addEventListener("change", () => showSplit(radio.value));
+    });
+    showSplit(document.querySelector('input[name="split"]:checked').value);
+  </script>
+</body>
+</html>

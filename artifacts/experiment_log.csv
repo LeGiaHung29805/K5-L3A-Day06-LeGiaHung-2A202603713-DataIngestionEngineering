@@ -1,4 +1,5 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed windows,650,65,source/page/topic/section/version/offsets,none,gemini-embedding-2,Overlap may preserve cross-boundary evidence but fixed offsets can split sentences.,8/15,10/15,2/5,4/5,185 chunks; 121.285s including retries
+B,paragraphs with word/line fallback,650,0,same as A,none,gemini-embedding-2,Preserving paragraph boundaries may improve coherence and evidence coverage.,11/15,15/15,3/5,5/5,197 chunks; 121.386s including retries; selected on dev
+C,same collection as B,650,0,same as B,topic when requested,gemini-embedding-2,Pre-filtering may remove out-of-scope chunks.,11/15,15/15,3/5,5/5,197 shared chunks; all 3 scoped questions already comply in B
+Hybrid,same collection as C,650,0,same as C,same as C,gemini-embedding-2 + BM25 via RRF,Lexical matching may improve ranking for exact terms and technical names.,11/15,15/15,4/5,5/5,"15 candidates per ranker; k=60; test Hit@1 +1, Hit@3 unchanged"

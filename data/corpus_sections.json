@@ -1,0 +1,40 @@
+{
+  "snapshot": "3.12.10",
+  "chapters": {
+    "filesystem": {
+      "title": "File and Directory Access",
+      "index": "filesys",
+      "modules": {
+        "pathlib": [
+          "basic-use", "general-properties", "operators", "accessing-individual-parts",
+          "expanding-and-resolving-paths", "querying-file-type-and-status",
+          "reading-and-writing-files", "reading-directories",
+          "creating-files-and-directories", "renaming-and-deleting"
+        ],
+        "glob": ["module-glob"],
+        "fnmatch": ["module-fnmatch"],
+        "shutil": ["platform-dependent-efficient-copy-operations", "querying-the-size-of-the-output-terminal"],
+        "tempfile": ["examples"]
+      }
+    },
+    "archive": {
+      "title": "Data Compression and Archiving",
+      "index": "archiving",
+      "modules": {
+        "zipfile": ["zipfile-objects", "path-objects", "zipinfo-objects", "command-line-interface"],
+        "tarfile": ["tarinfo-objects", "supported-tar-formats", "unicode-issues"],
+        "gzip": ["examples-of-usage"],
+        "bz2": ["de-compression-of-files", "incremental-de-compression"],
+        "lzma": ["compressing-and-decompressing-data-in-memory", "examples"]
+      }
+    },
+    "formats": {
+      "title": "File Formats",
+      "index": "fileformats",
+      "modules": {
+        "csv": ["module-contents", "dialects-and-formatting-parameters", "reader-objects", "writer-objects"],
+        "configparser": ["quick-start", "supported-datatypes", "fallback-values", "interpolation-of-values"]
+      }
+    }
+  }
+}

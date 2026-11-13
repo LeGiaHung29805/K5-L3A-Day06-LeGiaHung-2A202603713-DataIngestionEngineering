@@ -1,0 +1,214 @@
+[
+  {
+    "id": "q01",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "When joining PurePath components with the slash operator, what happens to the prefix when the right operand is absolute?",
+    "expected_answer": "The previous path is ignored.",
+    "gold_source_id": "pathlib",
+    "gold_page": 3,
+    "evidence_quote": "If the argument is an absolute path, the previous path is ignored. On Windows, the drive is not reset when the argument is a rooted relative path (e.g., r'\\foo'):"
+  },
+  {
+    "id": "q02",
+    "split": "dev",
+    "type": "direct",
+    "question": "What kind of value does PurePath.parts return?",
+    "expected_answer": "A tuple of the path components.",
+    "gold_source_id": "pathlib",
+    "gold_page": 4,
+    "evidence_quote": "PurePath.parts\n\nA tuple giving access to the path’s various components:"
+  },
+  {
+    "id": "q03",
+    "split": "dev",
+    "type": "condition",
+    "question": "Which option lets Path.exists test the link itself instead of following it?",
+    "expected_answer": "Pass follow_symlinks=False.",
+    "gold_source_id": "pathlib",
+    "gold_page": 6,
+    "evidence_quote": "This method normally follows symlinks; to check if a symlink exists, add the argument follow_symlinks=False."
+  },
+  {
+    "id": "q04",
+    "split": "dev",
+    "type": "condition",
+    "question": "When parent directories are absent, what does Path.mkdir do with parents=True and which permissions does it use for them?",
+    "expected_answer": "It creates missing parents with default permissions, ignoring mode for the parents.",
+    "gold_source_id": "pathlib",
+    "gold_page": 9,
+    "evidence_quote": "If parents is true, any missing parents of this path are created as needed; they are created with the default permissions without taking mode into account (mimicking the POSIX mkdir -p command)."
+  },
+  {
+    "id": "q05",
+    "split": "dev",
+    "type": "condition",
+    "question": "Will Path.unlink(missing_ok=True) complain if the file was already absent?",
+    "expected_answer": "It ignores FileNotFoundError.",
+    "gold_source_id": "pathlib",
+    "gold_page": 10,
+    "evidence_quote": "If missing_ok is true, FileNotFoundError exceptions will be ignored (same behavior as the POSIX rm -f command)."
+  },
+  {
+    "id": "q06",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "Which fnmatch function enforces matching letter case consistently across operating systems?",
+    "expected_answer": "fnmatchcase().",
+    "gold_source_id": "fnmatch",
+    "gold_page": 1,
+    "evidence_quote": "fnmatchcase() can be used to perform a case-sensitive comparison, regardless of whether that’s standard for the operating system."
+  },
+  {
+    "id": "q07",
+    "split": "dev",
+    "type": "scope",
+    "question": "How can I create a directory that is cleaned up when its context manager exits?",
+    "expected_answer": "Use tempfile.TemporaryDirectory() in a with block.",
+    "gold_source_id": "tempfile",
+    "gold_page": 1,
+    "evidence_quote": "with tempfile.TemporaryDirectory() as tmpdirname:\n...     print('created temporary directory', tmpdirname)\n>>>\n# directory and contents have been removed",
+    "filter": {
+      "topic": "filesystem"
+    },
+    "filter_context": "User selects File and Directory Access."
+  },
+  {
+    "id": "q08",
+    "split": "dev",
+    "type": "scope",
+    "question": "How do I check all entries for bad checksums and headers, and what is returned when all entries pass?",
+    "expected_answer": "Use ZipFile.testzip(). It returns None if all pass, or the name of the first bad file.",
+    "gold_source_id": "zipfile",
+    "gold_page": 1,
+    "evidence_quote": "ZipFile.testzip()\n\nRead all the files in the archive and check their CRC’s and file headers. Return the name of the first bad file, or else return None.",
+    "filter": {
+      "topic": "archive"
+    },
+    "filter_context": "User selects Data Compression and Archiving."
+  },
+  {
+    "id": "q09",
+    "split": "dev",
+    "type": "condition",
+    "question": "If I turn off allowZip64 and an archive grows past the size that needs ZIP64, what happens?",
+    "expected_answer": "ZipFile raises an exception when ZIP64 extensions are required.",
+    "gold_source_id": "zipfile",
+    "gold_page": 1,
+    "evidence_quote": "If it is false zipfile will raise an exception when the ZIP file would require ZIP64 extensions."
+  },
+  {
+    "id": "q10",
+    "split": "dev",
+    "type": "direct",
+    "question": "What exactly does ZipInfo.CRC measure?",
+    "expected_answer": "CRC-32 of the uncompressed file.",
+    "gold_source_id": "zipfile",
+    "gold_page": 3,
+    "evidence_quote": "ZipInfo.CRC\n\nCRC-32 of the uncompressed file."
+  },
+  {
+    "id": "q11",
+    "split": "dev",
+    "type": "direct",
+    "question": "How does the Python gzip example open a .gz file for reading bytes?",
+    "expected_answer": "It opens the file with gzip.open in rb mode and calls read().",
+    "gold_source_id": "gzip",
+    "gold_page": 1,
+    "evidence_quote": "with gzip.open('/home/joe/file.txt.gz', 'rb') as f:\n    file_content = f.read()"
+  },
+  {
+    "id": "q12",
+    "split": "dev",
+    "type": "condition",
+    "question": "For bz2.open in binary mode, can I still supply encoding, errors or newline?",
+    "expected_answer": "No. Omit all three arguments in binary mode.",
+    "gold_source_id": "bz2",
+    "gold_page": 1,
+    "evidence_quote": "For binary mode, this function is equivalent to the BZ2File constructor: BZ2File(filename, mode, compresslevel=compresslevel). In this case, the encoding, errors and newline arguments must not be provided."
+  },
+  {
+    "id": "q13",
+    "split": "dev",
+    "type": "condition",
+    "question": "How does CSV DictReader represent surplus fields when a row has more fields than the supplied names?",
+    "expected_answer": "It puts extra values in a list under restkey, whose default is None.",
+    "gold_source_id": "csv",
+    "gold_page": 1,
+    "evidence_quote": "If a row has more fields than fieldnames, the remaining data is put in a list and stored with the fieldname specified by restkey (which defaults to None)."
+  },
+  {
+    "id": "q14",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "How does a CSV dialect represent a quote character inside a field when doublequote is enabled versus disabled?",
+    "expected_answer": "True doubles the quote. False prefixes it with escapechar.",
+    "gold_source_id": "csv",
+    "gold_page": 2,
+    "evidence_quote": "When True, the character is doubled. When False, the escapechar is used as a prefix to the quotechar. It defaults to True."
+  },
+  {
+    "id": "q15",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "Why can csvreader.line_num be larger than the number of rows I already received?",
+    "expected_answer": "It counts source lines and a record may span several lines.",
+    "gold_source_id": "csv",
+    "gold_page": 3,
+    "evidence_quote": "The number of lines read from the source iterator. This is not the same as the number of records returned, as records can span multiple lines."
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "condition",
+    "question": "What return value should I expect when I provide another block to BZ2Compressor but it has no compressed output ready yet?",
+    "expected_answer": "An empty byte string.",
+    "gold_source_id": "bz2",
+    "gold_page": 2,
+    "evidence_quote": "Provide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise."
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "condition",
+    "question": "Can one LZMADecompressor instance read concatenated compressed streams, or must I instantiate more objects?",
+    "expected_answer": "Create one LZMADecompressor per compressed stream.",
+    "gold_source_id": "lzma",
+    "gold_page": 1,
+    "evidence_quote": "This class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream."
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "scope",
+    "question": "If I supply my own fallback when reading a missing setting, but a default value for it already exists, which value wins?",
+    "expected_answer": "The default value wins over the fallback.",
+    "gold_source_id": "configparser",
+    "gold_page": 3,
+    "evidence_quote": "Please note that default values have precedence over fallback values.",
+    "filter": {
+      "topic": "formats"
+    },
+    "filter_context": "User selects File Formats."
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "For INI settings, how can one setting interpolate an option from a different section under ExtendedInterpolation?",
+    "expected_answer": "Write ${section:option}.",
+    "gold_source_id": "configparser",
+    "gold_page": 4,
+    "evidence_quote": "Extended interpolation is using ${section:option} to denote a value from a foreign section."
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "condition",
+    "question": "For a shell-style file search with glob.glob, are filenames beginning with a dot included in matches by default?",
+    "expected_answer": "No. Filenames starting with a dot are excluded by default.",
+    "gold_source_id": "glob",
+    "gold_page": 1,
+    "evidence_quote": "If the directory contains files starting with . they won’t be matched by default."
+  }
+]
