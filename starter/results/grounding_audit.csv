@@ -1,0 +1,16 @@
+strategy,question_id,score_0_2,reason,reviewer
+A,q16,2,Hạng 1 có ngữ cảnh BZ2Compressor và điều kiện trả bytes rỗng.,Le Gia Hung
+B,q16,2,Hạng 2 có ngữ cảnh BZ2Compressor và điều kiện trả bytes rỗng.,Le Gia Hung
+C,q16,2,Hạng 2 có ngữ cảnh BZ2Compressor và điều kiện trả bytes rỗng.,Le Gia Hung
+A,q17,1,Hạng 1 có hướng dẫn tạo một đối tượng mỗi stream nhưng bắt đầu giữa câu. Mô tả đầy đủ giới hạn multi-stream của class bị cắt.,Le Gia Hung
+B,q17,2,"Hạng 3 nêu giới hạn của instance, phân biệt với hàm decompress và nêu một đối tượng cho mỗi stream.",Le Gia Hung
+C,q17,2,"Hạng 3 nêu giới hạn của instance, phân biệt với hàm decompress và nêu một đối tượng cho mỗi stream.",Le Gia Hung
+A,q18,2,Hạng 1 nêu thứ tự ưu tiên của DEFAULT và fallback kèm ví dụ.,Le Gia Hung
+B,q18,2,Hạng 1 nêu thứ tự ưu tiên của DEFAULT và fallback kèm ví dụ.,Le Gia Hung
+C,q18,2,Hạng 1 nêu thứ tự ưu tiên của DEFAULT và fallback kèm ví dụ.,Le Gia Hung
+A,q19,2,Hạng 1 minh họa tham chiếu qua section. Hạng 2 ghi cú pháp và tên ExtendedInterpolation.,Le Gia Hung
+B,q19,2,Hạng 1 ghi cú pháp và tên ExtendedInterpolation. Hạng 2 minh họa tham chiếu qua section.,Le Gia Hung
+C,q19,2,Hạng 1 ghi cú pháp và tên ExtendedInterpolation. Hạng 2 minh họa tham chiếu qua section.,Le Gia Hung
+A,q20,2,Hạng 2 nêu hành vi mặc định và minh họa đối với dotfile.,Le Gia Hung
+B,q20,2,Hạng 1 nêu hành vi mặc định và minh họa đối với dotfile.,Le Gia Hung
+C,q20,2,Hạng 1 nêu hành vi mặc định và minh họa đối với dotfile.,Le Gia Hung

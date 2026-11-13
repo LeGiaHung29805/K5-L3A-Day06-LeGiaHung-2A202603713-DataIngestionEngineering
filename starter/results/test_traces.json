@@ -1,0 +1,1522 @@
+[
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "condition",
+    "question": "What return value should I expect when I provide another block to BZ2Compressor but it has no compressed output ready yet?",
+    "expected_answer": "An empty byte string.",
+    "gold_source_id": "bz2",
+    "gold_page": 2,
+    "evidence_quote": "Provide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.",
+    "hits": [
+      {
+        "chunk_id": "b351dbb6-07ea-5e6f-9ce0-a8cf5dcaedff",
+        "score": 0.724529754611686,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Incremental (de)compression\n\n class bz2.BZ2Compressor(compresslevel=9)\n\nCreate a new compressor object. This object may be used to compress data incrementally. For one-shot compression, use the compress() function instead.\n\ncompresslevel, if given, must be an integer between 1 and 9. The default is 9.\n\n compress(data)\n\nProvide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.\n\nWhen you have finished providing data to the compressor, call the flush() method to finish the compression process.\n\n flush()\n\nFinish the compression process. Returns the compressed data left in internal bu",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 650
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "76feb7f6-cd28-5065-a4de-f5e007a25eba",
+        "score": 0.7146351000741441,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "pression process. Returns the compressed data left in internal buffers.\n\nThe compressor object may not be used after this method has been called.\n\n class bz2.BZ2Decompressor\n\nCreate a new decompressor object. This object may be used to decompress data incrementally. For one-shot compression, use the decompress() function instead.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and BZ2File. If you need to decompress a multi-stream input with BZ2Decompressor, you must use a new decompressor for each stream.\n\n decompress(data, max_length=-1)\n\nDecompress data (a bytes-like object)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 585,
+          "end": 1235
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "8e7bb154-74e0-5f05-a462-fbd321979a7f",
+        "score": 0.703885472954786,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": " is accessed before the end of the stream has been reached, its value will be b''.\n\n needs_input\n\nFalse if the decompress() method can provide more decompressed data before requiring new uncompressed input.\n\nAdded in version 3.5.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 2340,
+          "end": 2569
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "A",
+    "applied_filter": null,
+    "retrieval_ms": 1.869
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "condition",
+    "question": "What return value should I expect when I provide another block to BZ2Compressor but it has no compressed output ready yet?",
+    "expected_answer": "An empty byte string.",
+    "gold_source_id": "bz2",
+    "gold_page": 2,
+    "evidence_quote": "Provide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.",
+    "hits": [
+      {
+        "chunk_id": "4d64ced2-bf34-52a8-b6c9-50775419840c",
+        "score": 0.7287354373583474,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Finish the compression process. Returns the compressed data left in internal buffers.\n\nThe compressor object may not be used after this method has been called.\n\n class bz2.BZ2Decompressor\n\nCreate a new decompressor object. This object may be used to decompress data incrementally. For one-shot compression, use the decompress() function instead.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and BZ2File. If you need to decompress a multi-stream input with BZ2Decompressor, you must use a new decompressor for each stream.\n\n decompress(data, max_length=-1)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 571,
+          "end": 1196
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "3c99b9b7-8756-54b7-a0e2-70e9a1c7e429",
+        "score": 0.7136415876514207,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Incremental (de)compression\n\n class bz2.BZ2Compressor(compresslevel=9)\n\nCreate a new compressor object. This object may be used to compress data incrementally. For one-shot compression, use the compress() function instead.\n\ncompresslevel, if given, must be an integer between 1 and 9. The default is 9.\n\n compress(data)\n\nProvide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.\n\nWhen you have finished providing data to the compressor, call the flush() method to finish the compression process.\n\n flush()",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 569
+        },
+        "rank": 2,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "20a789fc-8e98-5349-97e6-19ccd79b8432",
+        "score": 0.7044096487192653,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "If this attribute is accessed before the end of the stream has been reached, its value will be b''.\n\n needs_input\n\nFalse if the decompress() method can provide more decompressed data before requiring new uncompressed input.\n\nAdded in version 3.5.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 2323,
+          "end": 2569
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "B",
+    "applied_filter": null,
+    "retrieval_ms": 1.849
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "condition",
+    "question": "What return value should I expect when I provide another block to BZ2Compressor but it has no compressed output ready yet?",
+    "expected_answer": "An empty byte string.",
+    "gold_source_id": "bz2",
+    "gold_page": 2,
+    "evidence_quote": "Provide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.",
+    "hits": [
+      {
+        "chunk_id": "4d64ced2-bf34-52a8-b6c9-50775419840c",
+        "score": 0.7287354373583474,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Finish the compression process. Returns the compressed data left in internal buffers.\n\nThe compressor object may not be used after this method has been called.\n\n class bz2.BZ2Decompressor\n\nCreate a new decompressor object. This object may be used to decompress data incrementally. For one-shot compression, use the decompress() function instead.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and BZ2File. If you need to decompress a multi-stream input with BZ2Decompressor, you must use a new decompressor for each stream.\n\n decompress(data, max_length=-1)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 571,
+          "end": 1196
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "3c99b9b7-8756-54b7-a0e2-70e9a1c7e429",
+        "score": 0.7136415876514207,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Incremental (de)compression\n\n class bz2.BZ2Compressor(compresslevel=9)\n\nCreate a new compressor object. This object may be used to compress data incrementally. For one-shot compression, use the compress() function instead.\n\ncompresslevel, if given, must be an integer between 1 and 9. The default is 9.\n\n compress(data)\n\nProvide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.\n\nWhen you have finished providing data to the compressor, call the flush() method to finish the compression process.\n\n flush()",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 569
+        },
+        "rank": 2,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "20a789fc-8e98-5349-97e6-19ccd79b8432",
+        "score": 0.7044096487192654,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "If this attribute is accessed before the end of the stream has been reached, its value will be b''.\n\n needs_input\n\nFalse if the decompress() method can provide more decompressed data before requiring new uncompressed input.\n\nAdded in version 3.5.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 2323,
+          "end": 2569
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "C",
+    "applied_filter": null,
+    "retrieval_ms": 1.342
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "condition",
+    "question": "What return value should I expect when I provide another block to BZ2Compressor but it has no compressed output ready yet?",
+    "expected_answer": "An empty byte string.",
+    "gold_source_id": "bz2",
+    "gold_page": 2,
+    "evidence_quote": "Provide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.",
+    "hits": [
+      {
+        "chunk_id": "3c99b9b7-8756-54b7-a0e2-70e9a1c7e429",
+        "score": 0.03200204813108039,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "Incremental (de)compression\n\n class bz2.BZ2Compressor(compresslevel=9)\n\nCreate a new compressor object. This object may be used to compress data incrementally. For one-shot compression, use the compress() function instead.\n\ncompresslevel, if given, must be an integer between 1 and 9. The default is 9.\n\n compress(data)\n\nProvide data to the compressor object. Returns a chunk of compressed data if possible, or an empty byte string otherwise.\n\nWhen you have finished providing data to the compressor, call the flush() method to finish the compression process.\n\n flush()",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 569
+        },
+        "cosine_rank": 2,
+        "cosine_score": 0.7136415876514207,
+        "bm25_rank": 3,
+        "bm25_score": 12.620282878393473,
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "20a789fc-8e98-5349-97e6-19ccd79b8432",
+        "score": 0.029386529386529386,
+        "document_id": "bz2",
+        "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+        "page": 2,
+        "text": "If this attribute is accessed before the end of the stream has been reached, its value will be b''.\n\n needs_input\n\nFalse if the decompress() method can provide more decompressed data before requiring new uncompressed input.\n\nAdded in version 3.5.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "incremental-de-compression",
+          "version": "3.12.10",
+          "start": 2323,
+          "end": 2569
+        },
+        "cosine_rank": 3,
+        "cosine_score": 0.7044096487192654,
+        "bm25_rank": 14,
+        "bm25_score": 9.722507371873565,
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "dfb0fee9-a605-5029-8188-1e7436d0cb30",
+        "score": 0.02900988017658188,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Decompress data (a bytes-like object), returning uncompressed data as bytes. Some of data may be buffered internally, for use in later calls to decompress(). The returned data should be concatenated with the output of any previous calls to decompress().\n\nIf max_length is nonnegative, returns at most max_length bytes of decompressed data. If this limit is reached and further output can be produced, the needs_input attribute will be set to False. In this case, the next call to decompress() may provide data as b'' to obtain more of the output.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 4235,
+          "end": 4781
+        },
+        "cosine_rank": 7,
+        "cosine_score": 0.6379255809614086,
+        "bm25_rank": 11,
+        "bm25_score": 10.192902081851406,
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "Hybrid",
+    "applied_filter": null,
+    "retrieval_ms": 2.198
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "condition",
+    "question": "Can one LZMADecompressor instance read concatenated compressed streams, or must I instantiate more objects?",
+    "expected_answer": "Create one LZMADecompressor per compressed stream.",
+    "gold_source_id": "lzma",
+    "gold_page": 1,
+    "evidence_quote": "This class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.",
+    "hits": [
+      {
+        "chunk_id": "76458c6c-3782-5941-89c8-3c980c4135ba",
+        "score": 0.7649644195716078,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "compress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.\n\n decompress(data, max_length=-1)\n\nDecompress data (a bytes-like object), returning uncompressed data as bytes. Some of data may be buffered internally, for use in later calls to decompress(). The returned data should be concatenated with the output of any previous calls to decompress().\n\nIf max_length is nonnegative, returns at most max_length bytes of decompressed data. If this limit is reached and further output can be produced, the needs_input attribute will be set to False. In this case, the next call to decompress() may provide data ",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 4095,
+          "end": 4745
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "6d9523b6-3908-5a5f-b3af-091a3d1b39a1",
+        "score": 0.72994859004175,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "r this method has been called.\n\n class lzma.LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)\n\nCreate a decompressor object, which can be used to decompress data incrementally.\n\nFor a more convenient way of decompressing an entire compressed stream at once, see decompress().\n\nThe format argument specifies the container format that should be used. The default is FORMAT_AUTO, which can decompress both .xz and .lzma files. Other possible values are FORMAT_XZ, FORMAT_ALONE, and FORMAT_RAW.\n\nThe memlimit argument specifies a limit (in bytes) on the amount of memory that the decompressor can use. When this argument is used, decompre",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 2925,
+          "end": 3575
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "bf11ce5e-15dd-5cbd-ba0e-06176b88dcaf",
+        "score": 0.7129396229097186,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compressing and decompressing data in memory\n\n class lzma.LZMACompressor(format=FORMAT_XZ, check=-1, preset=None, filters=None)\n\nCreate a compressor object, which can be used to compress data incrementally.\n\nFor a more convenient way of compressing a single chunk of data, see compress().\n\nThe format argument specifies what container format should be used. Possible values are:\n\n FORMAT_XZ: The .xz container format.This is the default format.\n\n FORMAT_ALONE: The legacy .lzma container format.This format is more limited than .xz – it does not support integrity checks or multiple filters.\n\n FORMAT_RAW: A raw data stream, not using any container f",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 650
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": false,
+    "filter_compliant": null,
+    "strategy": "A",
+    "applied_filter": null,
+    "retrieval_ms": 1.483
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "condition",
+    "question": "Can one LZMADecompressor instance read concatenated compressed streams, or must I instantiate more objects?",
+    "expected_answer": "Create one LZMADecompressor per compressed stream.",
+    "gold_source_id": "lzma",
+    "gold_page": 1,
+    "evidence_quote": "This class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.",
+    "hits": [
+      {
+        "chunk_id": "695646bd-d675-5c50-bd49-fc2ad89763e7",
+        "score": 0.7356125529523521,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compress data (a bytes object), returning a bytes object containing compressed data for at least part of the input. Some of data may be buffered internally, for use in later calls to compress() and flush(). The returned data should be concatenated with the output of any previous calls to compress().\n\n flush()\n\nFinish the compression process, returning a bytes object containing any data stored in the compressor’s internal buffers.\n\nThe compressor cannot be used after this method has been called.\n\n class lzma.LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 2456,
+          "end": 3034
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "3e4f15ae-bd6f-568d-8139-7d455e806cad",
+        "score": 0.7108352640772178,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compressing and decompressing data in memory\n\n class lzma.LZMACompressor(format=FORMAT_XZ, check=-1, preset=None, filters=None)\n\nCreate a compressor object, which can be used to compress data incrementally.\n\nFor a more convenient way of compressing a single chunk of data, see compress().\n\nThe format argument specifies what container format should be used. Possible values are:\n\n FORMAT_XZ: The .xz container format.This is the default format.\n\n FORMAT_ALONE: The legacy .lzma container format.This format is more limited than .xz – it does not support integrity checks or multiple filters.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 591
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "90ad9cd3-0099-54b1-9aeb-43497820657a",
+        "score": 0.7104202641670089,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "The filters argument specifies the filter chain that was used to create the stream being decompressed. This argument is required if format is FORMAT_RAW, but should not be used for other formats. See Specifying custom filter chains for more information about filter chains.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.\n\n decompress(data, max_length=-1)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 3687,
+          "end": 4233
+        },
+        "rank": 3,
+        "evidence_hit": true
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "B",
+    "applied_filter": null,
+    "retrieval_ms": 1.707
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "condition",
+    "question": "Can one LZMADecompressor instance read concatenated compressed streams, or must I instantiate more objects?",
+    "expected_answer": "Create one LZMADecompressor per compressed stream.",
+    "gold_source_id": "lzma",
+    "gold_page": 1,
+    "evidence_quote": "This class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.",
+    "hits": [
+      {
+        "chunk_id": "695646bd-d675-5c50-bd49-fc2ad89763e7",
+        "score": 0.7356125529523521,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compress data (a bytes object), returning a bytes object containing compressed data for at least part of the input. Some of data may be buffered internally, for use in later calls to compress() and flush(). The returned data should be concatenated with the output of any previous calls to compress().\n\n flush()\n\nFinish the compression process, returning a bytes object containing any data stored in the compressor’s internal buffers.\n\nThe compressor cannot be used after this method has been called.\n\n class lzma.LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 2456,
+          "end": 3034
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "3e4f15ae-bd6f-568d-8139-7d455e806cad",
+        "score": 0.7108352640772178,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compressing and decompressing data in memory\n\n class lzma.LZMACompressor(format=FORMAT_XZ, check=-1, preset=None, filters=None)\n\nCreate a compressor object, which can be used to compress data incrementally.\n\nFor a more convenient way of compressing a single chunk of data, see compress().\n\nThe format argument specifies what container format should be used. Possible values are:\n\n FORMAT_XZ: The .xz container format.This is the default format.\n\n FORMAT_ALONE: The legacy .lzma container format.This format is more limited than .xz – it does not support integrity checks or multiple filters.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 591
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "90ad9cd3-0099-54b1-9aeb-43497820657a",
+        "score": 0.7104202641670089,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "The filters argument specifies the filter chain that was used to create the stream being decompressed. This argument is required if format is FORMAT_RAW, but should not be used for other formats. See Specifying custom filter chains for more information about filter chains.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.\n\n decompress(data, max_length=-1)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 3687,
+          "end": 4233
+        },
+        "rank": 3,
+        "evidence_hit": true
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "C",
+    "applied_filter": null,
+    "retrieval_ms": 1.501
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "condition",
+    "question": "Can one LZMADecompressor instance read concatenated compressed streams, or must I instantiate more objects?",
+    "expected_answer": "Create one LZMADecompressor per compressed stream.",
+    "gold_source_id": "lzma",
+    "gold_page": 1,
+    "evidence_quote": "This class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.",
+    "hits": [
+      {
+        "chunk_id": "90ad9cd3-0099-54b1-9aeb-43497820657a",
+        "score": 0.032266458495966696,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "The filters argument specifies the filter chain that was used to create the stream being decompressed. This argument is required if format is FORMAT_RAW, but should not be used for other formats. See Specifying custom filter chains for more information about filter chains.\n\nNote\n\nThis class does not transparently handle inputs containing multiple compressed streams, unlike decompress() and LZMAFile. To decompress a multi-stream input with LZMADecompressor, you must create a new decompressor for each stream.\n\n decompress(data, max_length=-1)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 3687,
+          "end": 4233
+        },
+        "cosine_rank": 3,
+        "cosine_score": 0.7104202641670089,
+        "bm25_rank": 1,
+        "bm25_score": 14.195761035001663,
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "695646bd-d675-5c50-bd49-fc2ad89763e7",
+        "score": 0.032018442622950824,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "Compress data (a bytes object), returning a bytes object containing compressed data for at least part of the input. Some of data may be buffered internally, for use in later calls to compress() and flush(). The returned data should be concatenated with the output of any previous calls to compress().\n\n flush()\n\nFinish the compression process, returning a bytes object containing any data stored in the compressor’s internal buffers.\n\nThe compressor cannot be used after this method has been called.\n\n class lzma.LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 2456,
+          "end": 3034
+        },
+        "cosine_rank": 1,
+        "cosine_score": 0.7356125529523521,
+        "bm25_rank": 4,
+        "bm25_score": 9.710006595813372,
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "84ecf461-ca21-598b-9e17-5f4555ee8040",
+        "score": 0.031754032258064516,
+        "document_id": "lzma",
+        "source": "https://docs.python.org/release/3.12.10/library/lzma.html#compressing-and-decompressing-data-in-memory",
+        "page": 1,
+        "text": "lzma.decompress(data, format=FORMAT_AUTO, memlimit=None, filters=None)\n\nDecompress data (a bytes object), returning the uncompressed data as a bytes object.\n\nIf data is the concatenation of multiple distinct compressed streams, decompress all of these streams, and return the concatenation of the results.\n\nSee LZMADecompressor above for a description of the format, memlimit and filters arguments.",
+        "metadata": {
+          "topic": "archive",
+          "chapter": "Data Compression and Archiving",
+          "section": "compressing-and-decompressing-data-in-memory",
+          "version": "3.12.10",
+          "start": 5977,
+          "end": 6375
+        },
+        "cosine_rank": 4,
+        "cosine_score": 0.6873903166362093,
+        "bm25_rank": 2,
+        "bm25_score": 12.719272876876094,
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "Hybrid",
+    "applied_filter": null,
+    "retrieval_ms": 2.093
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "scope",
+    "question": "If I supply my own fallback when reading a missing setting, but a default value for it already exists, which value wins?",
+    "expected_answer": "The default value wins over the fallback.",
+    "gold_source_id": "configparser",
+    "gold_page": 3,
+    "evidence_quote": "Please note that default values have precedence over fallback values.",
+    "filter": {
+      "topic": "formats"
+    },
+    "filter_context": "User selects File Formats.",
+    "hits": [
+      {
+        "chunk_id": "944613fa-078d-5a74-af47-9008aec617ef",
+        "score": 0.7555731744600768,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "Fallback Values\n\nAs with a dictionary, you can use a section’s get() method to provide fallback values:\n\n>>> topsecret.get('Port')\n'50022'\n>>> topsecret.get('CompressionLevel')\n'9'\n>>> topsecret.get('Cipher')\n>>> topsecret.get('Cipher', '3des-cbc')\n'3des-cbc'\n\nPlease note that default values have precedence over fallback values. For instance, in our example the 'CompressionLevel' key was specified only in the 'DEFAULT' section. If we try to get it from the section 'topsecret.server.example', we will always get the default, even if we specify a fallback:\n\n>>> topsecret.get('CompressionLevel', '3')\n'9'\n\nOne more thing to be aware of is that the",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 650
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "7308eebf-3718-5182-b950-a70ba6cb5fe0",
+        "score": 0.7012114748197915,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "lback=True)\nTrue\n>>> config['DEFAULT']['BatchMode'] = 'no'\n>>> topsecret.getboolean('BatchMode', fallback=True)\nFalse",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 1170,
+          "end": 1287
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "6bbbec8f-ba1c-5821-9c0b-35a69b30389e",
+        "score": 0.679025179668068,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "essionLevel', '3')\n'9'\n\nOne more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:\n\n>>> 'BatchMode' in topsecret\nFalse\n>>> topsecret.getboolean('BatchMode', fallback=True)\nTrue\n>>> config['DEFAULT']['BatchMode'] = 'no'\n>>> to",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 585,
+          "end": 1235
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": true,
+    "strategy": "A",
+    "applied_filter": null,
+    "retrieval_ms": 1.484
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "scope",
+    "question": "If I supply my own fallback when reading a missing setting, but a default value for it already exists, which value wins?",
+    "expected_answer": "The default value wins over the fallback.",
+    "gold_source_id": "configparser",
+    "gold_page": 3,
+    "evidence_quote": "Please note that default values have precedence over fallback values.",
+    "filter": {
+      "topic": "formats"
+    },
+    "filter_context": "User selects File Formats.",
+    "hits": [
+      {
+        "chunk_id": "385cee3c-e472-5dcd-bf12-b43aefea8a74",
+        "score": 0.7683739453061205,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "Fallback Values\n\nAs with a dictionary, you can use a section’s get() method to provide fallback values:\n\n>>> topsecret.get('Port')\n'50022'\n>>> topsecret.get('CompressionLevel')\n'9'\n>>> topsecret.get('Cipher')\n>>> topsecret.get('Cipher', '3des-cbc')\n'3des-cbc'\n\nPlease note that default values have precedence over fallback values. For instance, in our example the 'CompressionLevel' key was specified only in the 'DEFAULT' section. If we try to get it from the section 'topsecret.server.example', we will always get the default, even if we specify a fallback:\n\n>>> topsecret.get('CompressionLevel', '3')\n'9'",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 607
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "05327398-cf8a-59a8-bcd4-e1cb3f162421",
+        "score": 0.7269434061514811,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "One more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 609,
+          "end": 1092
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "21f5b1e7-4285-5e92-bab4-c943f6fee6e1",
+        "score": 0.7101328249919143,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": ">>> 'BatchMode' in topsecret\nFalse\n>>> topsecret.getboolean('BatchMode', fallback=True)\nTrue\n>>> config['DEFAULT']['BatchMode'] = 'no'\n>>> topsecret.getboolean('BatchMode', fallback=True)\nFalse",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 1094,
+          "end": 1287
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": true,
+    "strategy": "B",
+    "applied_filter": null,
+    "retrieval_ms": 1.408
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "scope",
+    "question": "If I supply my own fallback when reading a missing setting, but a default value for it already exists, which value wins?",
+    "expected_answer": "The default value wins over the fallback.",
+    "gold_source_id": "configparser",
+    "gold_page": 3,
+    "evidence_quote": "Please note that default values have precedence over fallback values.",
+    "filter": {
+      "topic": "formats"
+    },
+    "filter_context": "User selects File Formats.",
+    "hits": [
+      {
+        "chunk_id": "385cee3c-e472-5dcd-bf12-b43aefea8a74",
+        "score": 0.7683739453061205,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "Fallback Values\n\nAs with a dictionary, you can use a section’s get() method to provide fallback values:\n\n>>> topsecret.get('Port')\n'50022'\n>>> topsecret.get('CompressionLevel')\n'9'\n>>> topsecret.get('Cipher')\n>>> topsecret.get('Cipher', '3des-cbc')\n'3des-cbc'\n\nPlease note that default values have precedence over fallback values. For instance, in our example the 'CompressionLevel' key was specified only in the 'DEFAULT' section. If we try to get it from the section 'topsecret.server.example', we will always get the default, even if we specify a fallback:\n\n>>> topsecret.get('CompressionLevel', '3')\n'9'",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 607
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "05327398-cf8a-59a8-bcd4-e1cb3f162421",
+        "score": 0.7269434061514811,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "One more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 609,
+          "end": 1092
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "21f5b1e7-4285-5e92-bab4-c943f6fee6e1",
+        "score": 0.7101328249919143,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": ">>> 'BatchMode' in topsecret\nFalse\n>>> topsecret.getboolean('BatchMode', fallback=True)\nTrue\n>>> config['DEFAULT']['BatchMode'] = 'no'\n>>> topsecret.getboolean('BatchMode', fallback=True)\nFalse",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 1094,
+          "end": 1287
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": true,
+    "strategy": "C",
+    "applied_filter": {
+      "topic": "formats"
+    },
+    "retrieval_ms": 3.551
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "scope",
+    "question": "If I supply my own fallback when reading a missing setting, but a default value for it already exists, which value wins?",
+    "expected_answer": "The default value wins over the fallback.",
+    "gold_source_id": "configparser",
+    "gold_page": 3,
+    "evidence_quote": "Please note that default values have precedence over fallback values.",
+    "filter": {
+      "topic": "formats"
+    },
+    "filter_context": "User selects File Formats.",
+    "hits": [
+      {
+        "chunk_id": "385cee3c-e472-5dcd-bf12-b43aefea8a74",
+        "score": 0.032266458495966696,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "Fallback Values\n\nAs with a dictionary, you can use a section’s get() method to provide fallback values:\n\n>>> topsecret.get('Port')\n'50022'\n>>> topsecret.get('CompressionLevel')\n'9'\n>>> topsecret.get('Cipher')\n>>> topsecret.get('Cipher', '3des-cbc')\n'3des-cbc'\n\nPlease note that default values have precedence over fallback values. For instance, in our example the 'CompressionLevel' key was specified only in the 'DEFAULT' section. If we try to get it from the section 'topsecret.server.example', we will always get the default, even if we specify a fallback:\n\n>>> topsecret.get('CompressionLevel', '3')\n'9'",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 607
+        },
+        "cosine_rank": 1,
+        "cosine_score": 0.7683739453061205,
+        "bm25_rank": 3,
+        "bm25_score": 11.057925957886312,
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "05327398-cf8a-59a8-bcd4-e1cb3f162421",
+        "score": 0.03225806451612903,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": "One more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 609,
+          "end": 1092
+        },
+        "cosine_rank": 2,
+        "cosine_score": 0.7269434061514811,
+        "bm25_rank": 2,
+        "bm25_score": 11.66378861477467,
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "21f5b1e7-4285-5e92-bab4-c943f6fee6e1",
+        "score": 0.03125763125763126,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+        "page": 3,
+        "text": ">>> 'BatchMode' in topsecret\nFalse\n>>> topsecret.getboolean('BatchMode', fallback=True)\nTrue\n>>> config['DEFAULT']['BatchMode'] = 'no'\n>>> topsecret.getboolean('BatchMode', fallback=True)\nFalse",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "fallback-values",
+          "version": "3.12.10",
+          "start": 1094,
+          "end": 1287
+        },
+        "cosine_rank": 3,
+        "cosine_score": 0.7101328249919143,
+        "bm25_rank": 5,
+        "bm25_score": 8.318785513289157,
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": true,
+    "strategy": "Hybrid",
+    "applied_filter": {
+      "topic": "formats"
+    },
+    "retrieval_ms": 4.337
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "For INI settings, how can one setting interpolate an option from a different section under ExtendedInterpolation?",
+    "expected_answer": "Write ${section:option}.",
+    "gold_source_id": "configparser",
+    "gold_page": 4,
+    "evidence_quote": "Extended interpolation is using ${section:option} to denote a value from a foreign section.",
+    "hits": [
+      {
+        "chunk_id": "9ca3bdc8-b835-599f-9c0e-f0f597259734",
+        "score": 0.796240435012536,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": " extended interpolation:\n\n[Paths]\nhome_dir: /Users\nmy_dir: ${home_dir}/lumberjack\nmy_pictures: ${my_dir}/Pictures\n\n[Escape]\n# use a $$ to escape the $ sign ($ is the only character that needs to be escaped):\ncost: $$80\n\nValues from other sections can be fetched as well:\n\n[Common]\nhome_dir: /Users\nlibrary_dir: /Library\nsystem_dir: /System\nmacports_dir: /opt/local\n\n[Frameworks]\nPython: 3.2\npath: ${Common:system_dir}/Library/Frameworks/\n\n[Arthur]\nnickname: Two Sheds\nlast_name: Jackson\nmy_dir: ${Common:home_dir}/twosheds\nmy_pictures: ${my_dir}/Pictures\npython_dir: ${Frameworks:path}/Python/Versions/${Frameworks:Python}",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1755,
+          "end": 2377
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "1e4295b6-f9ee-5991-a7b0-29ca2b175fba",
+        "score": 0.7769036434974645,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": ")s/lumberjack as the value of my_dir.\n\n class configparser.ExtendedInterpolation\n\nAn alternative handler for interpolation which implements a more advanced syntax, used for instance in zc.buildout. Extended interpolation is using ${section:option} to denote a value from a foreign section. Interpolation can span multiple levels. For convenience, if the section: part is omitted, interpolation defaults to the current section (and possibly the default values from the special section).\n\nFor example, the configuration specified above with basic interpolation, would look like this with extended interpolation:\n\n[Paths]\nhome_dir: /Users\nmy_dir: ${home",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1170,
+          "end": 1820
+        },
+        "rank": 2,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "dac9fef8-428e-573e-b0db-8ba35ffe9701",
+        "score": 0.7423962745885411,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.\n\n class configparser.Extend",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 585,
+          "end": 1235
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "A",
+    "applied_filter": null,
+    "retrieval_ms": 1.538
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "For INI settings, how can one setting interpolate an option from a different section under ExtendedInterpolation?",
+    "expected_answer": "Write ${section:option}.",
+    "gold_source_id": "configparser",
+    "gold_page": 4,
+    "evidence_quote": "Extended interpolation is using ${section:option} to denote a value from a foreign section.",
+    "hits": [
+      {
+        "chunk_id": "23edb1d0-8000-5fae-ad0d-8affb1440067",
+        "score": 0.8021337656037411,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "class configparser.ExtendedInterpolation\n\nAn alternative handler for interpolation which implements a more advanced syntax, used for instance in zc.buildout. Extended interpolation is using ${section:option} to denote a value from a foreign section. Interpolation can span multiple levels. For convenience, if the section: part is omitted, interpolation defaults to the current section (and possibly the default values from the special section).\n\nFor example, the configuration specified above with basic interpolation, would look like this with extended interpolation:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1210,
+          "end": 1779
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "b8aa7fbf-4ec8-5a89-bace-d43920afd72f",
+        "score": 0.7437472535623713,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "[Paths]\nhome_dir: /Users\nmy_dir: ${home_dir}/lumberjack\nmy_pictures: ${my_dir}/Pictures\n\n[Escape]\n# use a $$ to escape the $ sign ($ is the only character that needs to be escaped):\ncost: $$80\n\nValues from other sections can be fetched as well:\n\n[Common]\nhome_dir: /Users\nlibrary_dir: /Library\nsystem_dir: /System\nmacports_dir: /opt/local\n\n[Frameworks]\nPython: 3.2\npath: ${Common:system_dir}/Library/Frameworks/\n\n[Arthur]\nnickname: Two Sheds\nlast_name: Jackson\nmy_dir: ${Common:home_dir}/twosheds\nmy_pictures: ${my_dir}/Pictures\npython_dir: ${Frameworks:path}/Python/Versions/${Frameworks:Python}",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1781,
+          "end": 2377
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "745dc53b-dd56-56b7-ac1e-c61a3ae5bd60",
+        "score": 0.7364912785762043,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "[Escape]\n# use a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 570,
+          "end": 1207
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "B",
+    "applied_filter": null,
+    "retrieval_ms": 2.02
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "For INI settings, how can one setting interpolate an option from a different section under ExtendedInterpolation?",
+    "expected_answer": "Write ${section:option}.",
+    "gold_source_id": "configparser",
+    "gold_page": 4,
+    "evidence_quote": "Extended interpolation is using ${section:option} to denote a value from a foreign section.",
+    "hits": [
+      {
+        "chunk_id": "23edb1d0-8000-5fae-ad0d-8affb1440067",
+        "score": 0.8021337656037411,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "class configparser.ExtendedInterpolation\n\nAn alternative handler for interpolation which implements a more advanced syntax, used for instance in zc.buildout. Extended interpolation is using ${section:option} to denote a value from a foreign section. Interpolation can span multiple levels. For convenience, if the section: part is omitted, interpolation defaults to the current section (and possibly the default values from the special section).\n\nFor example, the configuration specified above with basic interpolation, would look like this with extended interpolation:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1210,
+          "end": 1779
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "b8aa7fbf-4ec8-5a89-bace-d43920afd72f",
+        "score": 0.7437472535623713,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "[Paths]\nhome_dir: /Users\nmy_dir: ${home_dir}/lumberjack\nmy_pictures: ${my_dir}/Pictures\n\n[Escape]\n# use a $$ to escape the $ sign ($ is the only character that needs to be escaped):\ncost: $$80\n\nValues from other sections can be fetched as well:\n\n[Common]\nhome_dir: /Users\nlibrary_dir: /Library\nsystem_dir: /System\nmacports_dir: /opt/local\n\n[Frameworks]\nPython: 3.2\npath: ${Common:system_dir}/Library/Frameworks/\n\n[Arthur]\nnickname: Two Sheds\nlast_name: Jackson\nmy_dir: ${Common:home_dir}/twosheds\nmy_pictures: ${my_dir}/Pictures\npython_dir: ${Frameworks:path}/Python/Versions/${Frameworks:Python}",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1781,
+          "end": 2377
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "745dc53b-dd56-56b7-ac1e-c61a3ae5bd60",
+        "score": 0.7364912785762043,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "[Escape]\n# use a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 570,
+          "end": 1207
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "C",
+    "applied_filter": null,
+    "retrieval_ms": 1.308
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "For INI settings, how can one setting interpolate an option from a different section under ExtendedInterpolation?",
+    "expected_answer": "Write ${section:option}.",
+    "gold_source_id": "configparser",
+    "gold_page": 4,
+    "evidence_quote": "Extended interpolation is using ${section:option} to denote a value from a foreign section.",
+    "hits": [
+      {
+        "chunk_id": "23edb1d0-8000-5fae-ad0d-8affb1440067",
+        "score": 0.03278688524590164,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "class configparser.ExtendedInterpolation\n\nAn alternative handler for interpolation which implements a more advanced syntax, used for instance in zc.buildout. Extended interpolation is using ${section:option} to denote a value from a foreign section. Interpolation can span multiple levels. For convenience, if the section: part is omitted, interpolation defaults to the current section (and possibly the default values from the special section).\n\nFor example, the configuration specified above with basic interpolation, would look like this with extended interpolation:",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 1210,
+          "end": 1779
+        },
+        "cosine_rank": 1,
+        "cosine_score": 0.8021337656037411,
+        "bm25_rank": 1,
+        "bm25_score": 21.1379625128644,
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "bce495cf-73ce-51ba-bb2c-4e207003ed32",
+        "score": 0.0315136476426799,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#quick-start",
+        "page": 1,
+        "text": "As we can see above, the API is pretty straightforward. The only bit of magic involves the DEFAULT section which provides default values for all other sections [1]. Note also that keys in sections are case-insensitive and stored in lowercase [1].\n\nIt is possible to read several configurations into a single ConfigParser, where the most recently added configuration has the highest priority. Any conflicting keys are taken from the more recent configuration while the previously existing keys are retained. The example below reads in an override.ini file, which will override any conflicting keys from the example.ini file.",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "quick-start",
+          "version": "3.12.10",
+          "start": 2063,
+          "end": 2686
+        },
+        "cosine_rank": 5,
+        "cosine_score": 0.6895766702662313,
+        "bm25_rank": 2,
+        "bm25_score": 12.67580355286706,
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "a5bbc01b-3f86-5e32-aaa4-792fb44d6a27",
+        "score": 0.030330882352941176,
+        "document_id": "configparser",
+        "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+        "page": 4,
+        "text": "Interpolation of values\n\nOn top of the core functionality, ConfigParser supports interpolation. This means values can be preprocessed before returning them from get() calls.\n\n class configparser.BasicInterpolation\n\nThe default implementation used by ConfigParser. It enables values to contain format strings which refer to other values in the same section, or values in the special default section [1]. Additional default values can be provided on initialization.\n\nFor example:\n\n[Paths]\nhome_dir: /Users\nmy_dir: %(home_dir)s/lumberjack\nmy_pictures: %(my_dir)s/Pictures",
+        "metadata": {
+          "topic": "formats",
+          "chapter": "File Formats",
+          "section": "interpolation-of-values",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 568
+        },
+        "cosine_rank": 4,
+        "cosine_score": 0.7128023919735688,
+        "bm25_rank": 8,
+        "bm25_score": 8.62895390086388,
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "Hybrid",
+    "applied_filter": null,
+    "retrieval_ms": 2.184
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "condition",
+    "question": "For a shell-style file search with glob.glob, are filenames beginning with a dot included in matches by default?",
+    "expected_answer": "No. Filenames starting with a dot are excluded by default.",
+    "gold_source_id": "glob",
+    "gold_page": 1,
+    "evidence_quote": "If the directory contains files starting with . they won’t be matched by default.",
+    "hits": [
+      {
+        "chunk_id": "4fc97496-a40a-5ea8-a422-c379a4a14fe0",
+        "score": 0.7515597871384437,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "glob — Unix style pathname pattern expansion\n\nSource code: Lib/glob.py\n\nThe glob module finds all the pathnames matching a specified pattern according to the rules used by the Unix shell, although results are returned in arbitrary order. No tilde expansion is done, but *, ?, and character ranges expressed with [] will be correctly matched. This is done by using the os.scandir() and fnmatch.fnmatch() functions in concert, and not by actually invoking a subshell.\n\nNote that files beginning with a dot (.) can only be matched by patterns that also start with a dot, unlike fnmatch.fnmatch() or pathlib.Path.glob(). (For tilde and shell variable exp",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 650
+        },
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "207cb740-4952-5763-9b70-948238f4dbb0",
+        "score": 0.7210159838433091,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "xt']\n>>> glob.glob('*.gif')\n['1.gif', 'card.gif']\n>>> glob.glob('?.gif')\n['1.gif']\n>>> glob.glob('**/*.txt', recursive=True)\n['2.txt', 'sub/3.txt']\n>>> glob.glob('./**/', recursive=True)\n['./', './sub/']\n\nIf the directory contains files starting with . they won’t be matched by default. For example, consider a directory containing card.gif and .card.gif:\n\n>>> import glob\n>>> glob.glob('*.gif')\n['card.gif']\n>>> glob.glob('.c*')\n['.card.gif']\n\nSee also\n\nModule fnmatch\n\nShell-style filename (not path) expansion",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 4095,
+          "end": 4607
+        },
+        "rank": 2,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "98ffc55b-d6ff-5df4-8358-0e9df28f283b",
+        "score": 0.7070724239023841,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "match() or pathlib.Path.glob(). (For tilde and shell variable expansion, use os.path.expanduser() and os.path.expandvars().)\n\nFor a literal match, wrap the meta-characters in brackets. For example, '[?]' matches the character '?'.\n\nSee also\n\nThe pathlib module offers high-level path objects.\n\n glob.glob(pathname, *, root_dir=None, dir_fd=None, recursive=False, include_hidden=False)\n\nReturn a possibly empty list of path names that match pathname, which must be a string containing a path specification. pathname can be either absolute (like /usr/src/Python-1.5/Makefile) or relative (like ../../Tools/*/*.gif), and can contain shell-style wildcard",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 585,
+          "end": 1235
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "A",
+    "applied_filter": null,
+    "retrieval_ms": 1.434
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "condition",
+    "question": "For a shell-style file search with glob.glob, are filenames beginning with a dot included in matches by default?",
+    "expected_answer": "No. Filenames starting with a dot are excluded by default.",
+    "gold_source_id": "glob",
+    "gold_page": 1,
+    "evidence_quote": "If the directory contains files starting with . they won’t be matched by default.",
+    "hits": [
+      {
+        "chunk_id": "40ec8052-9e68-52fb-a809-1d7eae44b64a",
+        "score": 0.7613327188179486,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "If the directory contains files starting with . they won’t be matched by default. For example, consider a directory containing card.gif and .card.gif:\n\n>>> import glob\n>>> glob.glob('*.gif')\n['card.gif']\n>>> glob.glob('.c*')\n['.card.gif']\n\nSee also\n\nModule fnmatch\n\nShell-style filename (not path) expansion",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 4300,
+          "end": 4607
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "7a2a7b48-ebbf-5a3c-9fc5-32f839feed4b",
+        "score": 0.7510800346323157,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "Note that files beginning with a dot (.) can only be matched by patterns that also start with a dot, unlike fnmatch.fnmatch() or pathlib.Path.glob(). (For tilde and shell variable expansion, use os.path.expanduser() and os.path.expandvars().)\n\nFor a literal match, wrap the meta-characters in brackets. For example, '[?]' matches the character '?'.\n\nSee also\n\nThe pathlib module offers high-level path objects.\n\n glob.glob(pathname, *, root_dir=None, dir_fd=None, recursive=False, include_hidden=False)",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 467,
+          "end": 969
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "62110ce9-c1af-5e6c-8488-f72ab7298710",
+        "score": 0.7360300655198718,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "glob — Unix style pathname pattern expansion\n\nSource code: Lib/glob.py\n\nThe glob module finds all the pathnames matching a specified pattern according to the rules used by the Unix shell, although results are returned in arbitrary order. No tilde expansion is done, but *, ?, and character ranges expressed with [] will be correctly matched. This is done by using the os.scandir() and fnmatch.fnmatch() functions in concert, and not by actually invoking a subshell.",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 465
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "B",
+    "applied_filter": null,
+    "retrieval_ms": 1.423
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "condition",
+    "question": "For a shell-style file search with glob.glob, are filenames beginning with a dot included in matches by default?",
+    "expected_answer": "No. Filenames starting with a dot are excluded by default.",
+    "gold_source_id": "glob",
+    "gold_page": 1,
+    "evidence_quote": "If the directory contains files starting with . they won’t be matched by default.",
+    "hits": [
+      {
+        "chunk_id": "40ec8052-9e68-52fb-a809-1d7eae44b64a",
+        "score": 0.7613327188179486,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "If the directory contains files starting with . they won’t be matched by default. For example, consider a directory containing card.gif and .card.gif:\n\n>>> import glob\n>>> glob.glob('*.gif')\n['card.gif']\n>>> glob.glob('.c*')\n['.card.gif']\n\nSee also\n\nModule fnmatch\n\nShell-style filename (not path) expansion",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 4300,
+          "end": 4607
+        },
+        "rank": 1,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "7a2a7b48-ebbf-5a3c-9fc5-32f839feed4b",
+        "score": 0.7510800346323157,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "Note that files beginning with a dot (.) can only be matched by patterns that also start with a dot, unlike fnmatch.fnmatch() or pathlib.Path.glob(). (For tilde and shell variable expansion, use os.path.expanduser() and os.path.expandvars().)\n\nFor a literal match, wrap the meta-characters in brackets. For example, '[?]' matches the character '?'.\n\nSee also\n\nThe pathlib module offers high-level path objects.\n\n glob.glob(pathname, *, root_dir=None, dir_fd=None, recursive=False, include_hidden=False)",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 467,
+          "end": 969
+        },
+        "rank": 2,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "62110ce9-c1af-5e6c-8488-f72ab7298710",
+        "score": 0.7360300655198718,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "glob — Unix style pathname pattern expansion\n\nSource code: Lib/glob.py\n\nThe glob module finds all the pathnames matching a specified pattern according to the rules used by the Unix shell, although results are returned in arbitrary order. No tilde expansion is done, but *, ?, and character ranges expressed with [] will be correctly matched. This is done by using the os.scandir() and fnmatch.fnmatch() functions in concert, and not by actually invoking a subshell.",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 465
+        },
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": true,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "C",
+    "applied_filter": null,
+    "retrieval_ms": 1.262
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "condition",
+    "question": "For a shell-style file search with glob.glob, are filenames beginning with a dot included in matches by default?",
+    "expected_answer": "No. Filenames starting with a dot are excluded by default.",
+    "gold_source_id": "glob",
+    "gold_page": 1,
+    "evidence_quote": "If the directory contains files starting with . they won’t be matched by default.",
+    "hits": [
+      {
+        "chunk_id": "7a2a7b48-ebbf-5a3c-9fc5-32f839feed4b",
+        "score": 0.03252247488101534,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "Note that files beginning with a dot (.) can only be matched by patterns that also start with a dot, unlike fnmatch.fnmatch() or pathlib.Path.glob(). (For tilde and shell variable expansion, use os.path.expanduser() and os.path.expandvars().)\n\nFor a literal match, wrap the meta-characters in brackets. For example, '[?]' matches the character '?'.\n\nSee also\n\nThe pathlib module offers high-level path objects.\n\n glob.glob(pathname, *, root_dir=None, dir_fd=None, recursive=False, include_hidden=False)",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 467,
+          "end": 969
+        },
+        "cosine_rank": 2,
+        "cosine_score": 0.7510800346323157,
+        "bm25_rank": 1,
+        "bm25_score": 27.98512686007164,
+        "rank": 1,
+        "evidence_hit": false
+      },
+      {
+        "chunk_id": "40ec8052-9e68-52fb-a809-1d7eae44b64a",
+        "score": 0.032266458495966696,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "If the directory contains files starting with . they won’t be matched by default. For example, consider a directory containing card.gif and .card.gif:\n\n>>> import glob\n>>> glob.glob('*.gif')\n['card.gif']\n>>> glob.glob('.c*')\n['.card.gif']\n\nSee also\n\nModule fnmatch\n\nShell-style filename (not path) expansion",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 4300,
+          "end": 4607
+        },
+        "cosine_rank": 1,
+        "cosine_score": 0.7613327188179486,
+        "bm25_rank": 3,
+        "bm25_score": 19.494435710386266,
+        "rank": 2,
+        "evidence_hit": true
+      },
+      {
+        "chunk_id": "62110ce9-c1af-5e6c-8488-f72ab7298710",
+        "score": 0.03149801587301587,
+        "document_id": "glob",
+        "source": "https://docs.python.org/release/3.12.10/library/glob.html#module-glob",
+        "page": 1,
+        "text": "glob — Unix style pathname pattern expansion\n\nSource code: Lib/glob.py\n\nThe glob module finds all the pathnames matching a specified pattern according to the rules used by the Unix shell, although results are returned in arbitrary order. No tilde expansion is done, but *, ?, and character ranges expressed with [] will be correctly matched. This is done by using the os.scandir() and fnmatch.fnmatch() functions in concert, and not by actually invoking a subshell.",
+        "metadata": {
+          "topic": "filesystem",
+          "chapter": "File and Directory Access",
+          "section": "module-glob",
+          "version": "3.12.10",
+          "start": 0,
+          "end": 465
+        },
+        "cosine_rank": 3,
+        "cosine_score": 0.7360300655198718,
+        "bm25_rank": 4,
+        "bm25_score": 16.76020373683103,
+        "rank": 3,
+        "evidence_hit": false
+      }
+    ],
+    "hit1": false,
+    "hit3": true,
+    "filter_compliant": null,
+    "strategy": "Hybrid",
+    "applied_filter": null,
+    "retrieval_ms": 2.286
+  }
+]

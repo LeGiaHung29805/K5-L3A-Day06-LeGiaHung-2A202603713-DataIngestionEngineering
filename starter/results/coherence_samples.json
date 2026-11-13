@@ -1,0 +1,512 @@
+[
+  {
+    "strategy": "A",
+    "position": 2094,
+    "chunk_id": "2d195d49-8763-5e5a-a064-bf6d673484c6",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#de-compression-of-files",
+    "page": 1,
+    "text": "is 'w' or 'a', compresslevel can be an integer between 1 and 9 specifying the level of compression: 1 produces the least compression, and 9 (default) produces the most compression.\n\nIf mode is 'r', the input file may be the concatenation of multiple compressed streams.\n\nBZ2File provides all of the members specified by the io.BufferedIOBase, except for detach() and truncate(). Iteration and the with statement are supported.\n\nBZ2File also provides the following methods:\n\n peek([n])\n\nReturn buffered data without advancing the file position. At least one byte of data will be returned (unless at EOF). The exact number of bytes returned is unspecif",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "de-compression-of-files",
+      "version": "3.12.10",
+      "start": 1755,
+      "end": 2405
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 2094,
+    "chunk_id": "de1f5498-7d50-560f-a71a-30477251c7fe",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#de-compression-of-files",
+    "page": 1,
+    "text": "If mode is 'w' or 'a', compresslevel can be an integer between 1 and 9 specifying the level of compression: 1 produces the least compression, and 9 (default) produces the most compression.\n\nIf mode is 'r', the input file may be the concatenation of multiple compressed streams.\n\nBZ2File provides all of the members specified by the io.BufferedIOBase, except for detach() and truncate(). Iteration and the with statement are supported.\n\nBZ2File also provides the following methods:\n\n peek([n])",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "de-compression-of-files",
+      "version": "3.12.10",
+      "start": 1747,
+      "end": 2239
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 2094,
+    "chunk_id": "de1f5498-7d50-560f-a71a-30477251c7fe",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#de-compression-of-files",
+    "page": 1,
+    "text": "If mode is 'w' or 'a', compresslevel can be an integer between 1 and 9 specifying the level of compression: 1 produces the least compression, and 9 (default) produces the most compression.\n\nIf mode is 'r', the input file may be the concatenation of multiple compressed streams.\n\nBZ2File provides all of the members specified by the io.BufferedIOBase, except for detach() and truncate(). Iteration and the with statement are supported.\n\nBZ2File also provides the following methods:\n\n peek([n])",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "de-compression-of-files",
+      "version": "3.12.10",
+      "start": 1747,
+      "end": 2239
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 1284,
+    "chunk_id": "866f156c-589b-58b4-898c-a975d40541db",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+    "page": 2,
+    "text": "press(data, max_length=-1)\n\nDecompress data (a bytes-like object), returning uncompressed data as bytes. Some of data may be buffered internally, for use in later calls to decompress(). The returned data should be concatenated with the output of any previous calls to decompress().\n\nIf max_length is nonnegative, returns at most max_length bytes of decompressed data. If this limit is reached and further output can be produced, the needs_input attribute will be set to False. In this case, the next call to decompress() may provide data as b'' to obtain more of the output.\n\nIf all of the input data was decompressed and returned (either because thi",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "incremental-de-compression",
+      "version": "3.12.10",
+      "start": 1170,
+      "end": 1820
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 1284,
+    "chunk_id": "718fdd07-d3ef-5593-b196-c825037f5dd2",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+    "page": 2,
+    "text": "Decompress data (a bytes-like object), returning uncompressed data as bytes. Some of data may be buffered internally, for use in later calls to decompress(). The returned data should be concatenated with the output of any previous calls to decompress().\n\nIf max_length is nonnegative, returns at most max_length bytes of decompressed data. If this limit is reached and further output can be produced, the needs_input attribute will be set to False. In this case, the next call to decompress() may provide data as b'' to obtain more of the output.",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "incremental-de-compression",
+      "version": "3.12.10",
+      "start": 1198,
+      "end": 1744
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 1284,
+    "chunk_id": "718fdd07-d3ef-5593-b196-c825037f5dd2",
+    "document_id": "bz2",
+    "source": "https://docs.python.org/release/3.12.10/library/bz2.html#incremental-de-compression",
+    "page": 2,
+    "text": "Decompress data (a bytes-like object), returning uncompressed data as bytes. Some of data may be buffered internally, for use in later calls to decompress(). The returned data should be concatenated with the output of any previous calls to decompress().\n\nIf max_length is nonnegative, returns at most max_length bytes of decompressed data. If this limit is reached and further output can be produced, the needs_input attribute will be set to False. In this case, the next call to decompress() may provide data as b'' to obtain more of the output.",
+    "metadata": {
+      "topic": "archive",
+      "chapter": "Data Compression and Archiving",
+      "section": "incremental-de-compression",
+      "version": "3.12.10",
+      "start": 1198,
+      "end": 1744
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 1628,
+    "chunk_id": "3ba907d8-fcc4-52ca-9ac0-27cd6f8527d5",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#quick-start",
+    "page": 1,
+    "text": "can treat a config parser much like a dictionary. There are differences, outlined later, but the behavior is very close to what you would expect from a dictionary.\n\nNow that we have created and saved a configuration file, let’s read it back and explore the data it holds.\n\n>>> config = configparser.ConfigParser()\n>>> config.sections()\n[]\n>>> config.read('example.ini')\n['example.ini']\n>>> config.sections()\n['forge.example', 'topsecret.server.example']\n>>> 'forge.example' in config\nTrue\n>>> 'python.org' in config\nFalse\n>>> config['forge.example']['User']\n'hg'\n>>> config['DEFAULT']['Compression']\n'yes'\n>>> topsecret = config['topsecret.server.exa",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "quick-start",
+      "version": "3.12.10",
+      "start": 1170,
+      "end": 1820
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 1628,
+    "chunk_id": "5eb7c598-0fe5-5105-84f8-e951c948042c",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#quick-start",
+    "page": 1,
+    "text": ">>> config = configparser.ConfigParser()\n>>> config.sections()\n[]\n>>> config.read('example.ini')\n['example.ini']\n>>> config.sections()\n['forge.example', 'topsecret.server.example']\n>>> 'forge.example' in config\nTrue\n>>> 'python.org' in config\nFalse\n>>> config['forge.example']['User']\n'hg'\n>>> config['DEFAULT']['Compression']\n'yes'\n>>> topsecret = config['topsecret.server.example']\n>>> topsecret['ForwardX11']\n'no'\n>>> topsecret['Port']\n'50022'\n>>> for key in config['forge.example']:\n...     print(key)\nuser\ncompressionlevel\nserveraliveinterval\ncompression\nforwardx11\n>>> config['forge.example']['ForwardX11']\n'yes'",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "quick-start",
+      "version": "3.12.10",
+      "start": 1443,
+      "end": 2061
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 1628,
+    "chunk_id": "5eb7c598-0fe5-5105-84f8-e951c948042c",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#quick-start",
+    "page": 1,
+    "text": ">>> config = configparser.ConfigParser()\n>>> config.sections()\n[]\n>>> config.read('example.ini')\n['example.ini']\n>>> config.sections()\n['forge.example', 'topsecret.server.example']\n>>> 'forge.example' in config\nTrue\n>>> 'python.org' in config\nFalse\n>>> config['forge.example']['User']\n'hg'\n>>> config['DEFAULT']['Compression']\n'yes'\n>>> topsecret = config['topsecret.server.example']\n>>> topsecret['ForwardX11']\n'no'\n>>> topsecret['Port']\n'50022'\n>>> for key in config['forge.example']:\n...     print(key)\nuser\ncompressionlevel\nserveraliveinterval\ncompression\nforwardx11\n>>> config['forge.example']['ForwardX11']\n'yes'",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "quick-start",
+      "version": "3.12.10",
+      "start": 1443,
+      "end": 2061
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 537,
+    "chunk_id": "3a61bc12-72a5-5dff-9ea0-f39bac908c06",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#supported-datatypes",
+    "page": 2,
+    "text": "Supported Datatypes\n\nConfig parsers do not guess datatypes of values in configuration files, always storing them internally as strings. This means that if you need other datatypes, you should convert on your own:\n\n>>> int(topsecret['Port'])\n50022\n>>> float(topsecret['CompressionLevel'])\n9.0\n\nSince this task is so common, config parsers provide a range of handy getter methods to handle integers, floats and booleans. The last one is the most interesting because simply passing the value to bool() would do no good since bool('False') is still True. This is why config parsers also provide getboolean(). This method is case-insensitive and recognize",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "supported-datatypes",
+      "version": "3.12.10",
+      "start": 0,
+      "end": 650
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 537,
+    "chunk_id": "d9f42105-5606-5089-b695-097e4cc7d842",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#supported-datatypes",
+    "page": 2,
+    "text": "Since this task is so common, config parsers provide a range of handy getter methods to handle integers, floats and booleans. The last one is the most interesting because simply passing the value to bool() would do no good since bool('False') is still True. This is why config parsers also provide getboolean(). This method is case-insensitive and recognizes Boolean values from 'yes'/'no', 'on'/'off', 'true'/'false' and '1'/'0' [1]. For example:\n\n>>> topsecret.getboolean('ForwardX11')\nFalse\n>>> config['forge.example'].getboolean('ForwardX11')\nTrue\n>>> config.getboolean('forge.example', 'Compression')\nTrue",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "supported-datatypes",
+      "version": "3.12.10",
+      "start": 293,
+      "end": 903
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 537,
+    "chunk_id": "d9f42105-5606-5089-b695-097e4cc7d842",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#supported-datatypes",
+    "page": 2,
+    "text": "Since this task is so common, config parsers provide a range of handy getter methods to handle integers, floats and booleans. The last one is the most interesting because simply passing the value to bool() would do no good since bool('False') is still True. This is why config parsers also provide getboolean(). This method is case-insensitive and recognizes Boolean values from 'yes'/'no', 'on'/'off', 'true'/'false' and '1'/'0' [1]. For example:\n\n>>> topsecret.getboolean('ForwardX11')\nFalse\n>>> config['forge.example'].getboolean('ForwardX11')\nTrue\n>>> config.getboolean('forge.example', 'Compression')\nTrue",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "supported-datatypes",
+      "version": "3.12.10",
+      "start": 293,
+      "end": 903
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 643,
+    "chunk_id": "944613fa-078d-5a74-af47-9008aec617ef",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+    "page": 3,
+    "text": "Fallback Values\n\nAs with a dictionary, you can use a section’s get() method to provide fallback values:\n\n>>> topsecret.get('Port')\n'50022'\n>>> topsecret.get('CompressionLevel')\n'9'\n>>> topsecret.get('Cipher')\n>>> topsecret.get('Cipher', '3des-cbc')\n'3des-cbc'\n\nPlease note that default values have precedence over fallback values. For instance, in our example the 'CompressionLevel' key was specified only in the 'DEFAULT' section. If we try to get it from the section 'topsecret.server.example', we will always get the default, even if we specify a fallback:\n\n>>> topsecret.get('CompressionLevel', '3')\n'9'\n\nOne more thing to be aware of is that the",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "fallback-values",
+      "version": "3.12.10",
+      "start": 0,
+      "end": 650
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 643,
+    "chunk_id": "05327398-cf8a-59a8-bcd4-e1cb3f162421",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+    "page": 3,
+    "text": "One more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "fallback-values",
+      "version": "3.12.10",
+      "start": 609,
+      "end": 1092
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 643,
+    "chunk_id": "05327398-cf8a-59a8-bcd4-e1cb3f162421",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#fallback-values",
+    "page": 3,
+    "text": "One more thing to be aware of is that the parser-level get() method provides a custom, more complex interface, maintained for backwards compatibility. When using this method, a fallback value can be provided via the fallback keyword-only argument:\n\n>>> config.get('forge.example', 'monster',\n...            fallback='No such things as monsters')\n'No such things as monsters'\n\nThe same fallback argument can be used with the getint(), getfloat() and getboolean() methods, for example:",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "fallback-values",
+      "version": "3.12.10",
+      "start": 609,
+      "end": 1092
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 1188,
+    "chunk_id": "dac9fef8-428e-573e-b0db-8ba35ffe9701",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+    "page": 4,
+    "text": "a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.\n\n class configparser.Extend",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "interpolation-of-values",
+      "version": "3.12.10",
+      "start": 585,
+      "end": 1235
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 1188,
+    "chunk_id": "745dc53b-dd56-56b7-ac1e-c61a3ae5bd60",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+    "page": 4,
+    "text": "[Escape]\n# use a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "interpolation-of-values",
+      "version": "3.12.10",
+      "start": 570,
+      "end": 1207
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 1188,
+    "chunk_id": "745dc53b-dd56-56b7-ac1e-c61a3ae5bd60",
+    "document_id": "configparser",
+    "source": "https://docs.python.org/release/3.12.10/library/configparser.html#interpolation-of-values",
+    "page": 4,
+    "text": "[Escape]\n# use a %% to escape the % sign (% is the only character that needs to be escaped):\ngain: 80%%\n\nIn the example above, ConfigParser with interpolation set to BasicInterpolation() would resolve %(home_dir)s to the value of home_dir (/Users in this case). %(my_dir)s in effect would resolve to /Users/lumberjack. All interpolations are done on demand so keys used in the chain of references do not have to be specified in any specific order in the configuration file.\n\nWith interpolation set to None, the parser would simply return %(my_dir)s/Pictures as the value of my_pictures and %(home_dir)s/lumberjack as the value of my_dir.",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "interpolation-of-values",
+      "version": "3.12.10",
+      "start": 570,
+      "end": 1207
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 5557,
+    "chunk_id": "f98f3300-096a-5951-b4c2-c4fa138d86d6",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#module-contents",
+    "page": 1,
+    "text": " in reader:\n...         print(row['first_name'], row['last_name'])\n...\nEric Idle\nJohn Cleese\n\n>>> print(row)\n{'first_name': 'John', 'last_name': 'Cleese'}\n\n class csv.DictWriter(f, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwds)\n\nCreate an object which operates like a regular writer but maps dictionaries onto output rows. The fieldnames parameter is a sequence of keys that identify the order in which values in the dictionary passed to the writerow() method are written to file f. The optional restval parameter specifies the value to be written if the dictionary is missing a key in fieldnames. If the dictionary pas",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "module-contents",
+      "version": "3.12.10",
+      "start": 5265,
+      "end": 5915
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 5557,
+    "chunk_id": "55fae661-f4cd-5016-b782-2118ac97f381",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#module-contents",
+    "page": 1,
+    "text": "Create an object which operates like a regular writer but maps dictionaries onto output rows. The fieldnames parameter is a sequence of keys that identify the order in which values in the dictionary passed to the writerow() method are written to file f. The optional restval parameter specifies the value to be written if the dictionary is missing a key in fieldnames. If the dictionary passed to the writerow() method contains a key not found in fieldnames, the optional extrasaction parameter indicates what action to take. If it is set to 'raise', the default value, a ValueError is raised. If it is set to 'ignore', extra values in the dictionary",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "module-contents",
+      "version": "3.12.10",
+      "start": 5525,
+      "end": 6175
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 5557,
+    "chunk_id": "55fae661-f4cd-5016-b782-2118ac97f381",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#module-contents",
+    "page": 1,
+    "text": "Create an object which operates like a regular writer but maps dictionaries onto output rows. The fieldnames parameter is a sequence of keys that identify the order in which values in the dictionary passed to the writerow() method are written to file f. The optional restval parameter specifies the value to be written if the dictionary is missing a key in fieldnames. If the dictionary passed to the writerow() method contains a key not found in fieldnames, the optional extrasaction parameter indicates what action to take. If it is set to 'raise', the default value, a ValueError is raised. If it is set to 'ignore', extra values in the dictionary",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "module-contents",
+      "version": "3.12.10",
+      "start": 5525,
+      "end": 6175
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 1178,
+    "chunk_id": "596b2e02-f081-5630-92f6-c20775bc9e82",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#dialects-and-formatting-parameters",
+    "page": 2,
+    "text": "s defined below for the Dialect class.\n\nDialects support the following attributes:\n\n Dialect.delimiter\n\nA one-character string used to separate fields. It defaults to ','.\n\n Dialect.doublequote\n\nControls how instances of quotechar appearing inside a field should themselves be quoted. When True, the character is doubled. When False, the escapechar is used as a prefix to the quotechar. It defaults to True.\n\nOn output, if doublequote is False and no escapechar is set, Error is raised if a quotechar is found in a field.\n\n Dialect.escapechar\n\nA one-character string used by the writer to escape the delimiter if quoting is set to QUOTE_NONE and the ",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "dialects-and-formatting-parameters",
+      "version": "3.12.10",
+      "start": 585,
+      "end": 1235
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 1178,
+    "chunk_id": "6e798ca9-73d4-5e4a-9879-d818c244e914",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#dialects-and-formatting-parameters",
+    "page": 2,
+    "text": "A one-character string used by the writer to escape the delimiter if quoting is set to QUOTE_NONE and the quotechar if doublequote is False. On reading, the escapechar removes any special meaning from the following character. It defaults to None, which disables escaping.\n\nChanged in version 3.11: An empty escapechar is not allowed.\n\n Dialect.lineterminator\n\nThe string used to terminate lines produced by the writer. It defaults to '\\r\\n'.\n\nNote\n\nThe reader is hard-coded to recognise either '\\r' or '\\n' as end-of-line, and ignores lineterminator. This behavior may change in the future.\n\n Dialect.quotechar",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "dialects-and-formatting-parameters",
+      "version": "3.12.10",
+      "start": 1129,
+      "end": 1739
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 1178,
+    "chunk_id": "6e798ca9-73d4-5e4a-9879-d818c244e914",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#dialects-and-formatting-parameters",
+    "page": 2,
+    "text": "A one-character string used by the writer to escape the delimiter if quoting is set to QUOTE_NONE and the quotechar if doublequote is False. On reading, the escapechar removes any special meaning from the following character. It defaults to None, which disables escaping.\n\nChanged in version 3.11: An empty escapechar is not allowed.\n\n Dialect.lineterminator\n\nThe string used to terminate lines produced by the writer. It defaults to '\\r\\n'.\n\nNote\n\nThe reader is hard-coded to recognise either '\\r' or '\\n' as end-of-line, and ignores lineterminator. This behavior may change in the future.\n\n Dialect.quotechar",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "dialects-and-formatting-parameters",
+      "version": "3.12.10",
+      "start": 1129,
+      "end": 1739
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 464,
+    "chunk_id": "411fa061-0e16-5721-a87a-a4860ec55e28",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#reader-objects",
+    "page": 3,
+    "text": "Reader Objects\n\nReader objects (DictReader instances and objects returned by the reader() function) have the following public methods:\n\n csvreader.__next__()\n\nReturn the next row of the reader’s iterable object as a list (if the object was returned from reader()) or a dict (if it is a DictReader instance), parsed according to the current Dialect. Usually you should call this as next(reader).\n\nReader objects have the following public attributes:\n\n csvreader.dialect\n\nA read-only description of the dialect in use by the parser.\n\n csvreader.line_num\n\nThe number of lines read from the source iterator. This is not the same as the number of records ",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "reader-objects",
+      "version": "3.12.10",
+      "start": 0,
+      "end": 650
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 464,
+    "chunk_id": "0f850b01-c1c0-5645-aca2-3e93ed02ac73",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#reader-objects",
+    "page": 3,
+    "text": "Reader Objects\n\nReader objects (DictReader instances and objects returned by the reader() function) have the following public methods:\n\n csvreader.__next__()\n\nReturn the next row of the reader’s iterable object as a list (if the object was returned from reader()) or a dict (if it is a DictReader instance), parsed according to the current Dialect. Usually you should call this as next(reader).\n\nReader objects have the following public attributes:\n\n csvreader.dialect\n\nA read-only description of the dialect in use by the parser.\n\n csvreader.line_num",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "reader-objects",
+      "version": "3.12.10",
+      "start": 0,
+      "end": 551
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 464,
+    "chunk_id": "0f850b01-c1c0-5645-aca2-3e93ed02ac73",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#reader-objects",
+    "page": 3,
+    "text": "Reader Objects\n\nReader objects (DictReader instances and objects returned by the reader() function) have the following public methods:\n\n csvreader.__next__()\n\nReturn the next row of the reader’s iterable object as a list (if the object was returned from reader()) or a dict (if it is a DictReader instance), parsed according to the current Dialect. Usually you should call this as next(reader).\n\nReader objects have the following public attributes:\n\n csvreader.dialect\n\nA read-only description of the dialect in use by the parser.\n\n csvreader.line_num",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "reader-objects",
+      "version": "3.12.10",
+      "start": 0,
+      "end": 551
+    }
+  },
+  {
+    "strategy": "A",
+    "position": 768,
+    "chunk_id": "0970d0cc-b32d-5528-8859-e9670170c161",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#writer-objects",
+    "page": 4,
+    "text": "rmatted according to the current Dialect. Return the return value of the call to the write method of the underlying file object.\n\nChanged in version 3.5: Added support of arbitrary iterables.\n\n csvwriter.writerows(rows)\n\nWrite all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.\n\nWriter objects have the following public attribute:\n\n csvwriter.dialect\n\nA read-only description of the dialect in use by the writer.\n\nDictWriter objects have the following public method:\n\n DictWriter.writeheader()\n\nWrite a row with the field names (as specified in the constructo",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "writer-objects",
+      "version": "3.12.10",
+      "start": 585,
+      "end": 1235
+    }
+  },
+  {
+    "strategy": "B",
+    "position": 768,
+    "chunk_id": "31af8a0f-9c20-5743-867c-1c1536baed43",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#writer-objects",
+    "page": 4,
+    "text": "Write the row parameter to the writer’s file object, formatted according to the current Dialect. Return the return value of the call to the write method of the underlying file object.\n\nChanged in version 3.5: Added support of arbitrary iterables.\n\n csvwriter.writerows(rows)\n\nWrite all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.\n\nWriter objects have the following public attribute:\n\n csvwriter.dialect\n\nA read-only description of the dialect in use by the writer.\n\nDictWriter objects have the following public method:\n\n DictWriter.writeheader()",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "writer-objects",
+      "version": "3.12.10",
+      "start": 530,
+      "end": 1169
+    }
+  },
+  {
+    "strategy": "C",
+    "position": 768,
+    "chunk_id": "31af8a0f-9c20-5743-867c-1c1536baed43",
+    "document_id": "csv",
+    "source": "https://docs.python.org/release/3.12.10/library/csv.html#writer-objects",
+    "page": 4,
+    "text": "Write the row parameter to the writer’s file object, formatted according to the current Dialect. Return the return value of the call to the write method of the underlying file object.\n\nChanged in version 3.5: Added support of arbitrary iterables.\n\n csvwriter.writerows(rows)\n\nWrite all elements in rows (an iterable of row objects as described above) to the writer’s file object, formatted according to the current dialect.\n\nWriter objects have the following public attribute:\n\n csvwriter.dialect\n\nA read-only description of the dialect in use by the writer.\n\nDictWriter objects have the following public method:\n\n DictWriter.writeheader()",
+    "metadata": {
+      "topic": "formats",
+      "chapter": "File Formats",
+      "section": "writer-objects",
+      "version": "3.12.10",
+      "start": 530,
+      "end": 1169
+    }
+  }
+]

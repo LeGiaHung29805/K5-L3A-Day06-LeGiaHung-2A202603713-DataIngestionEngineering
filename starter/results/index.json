@@ -1,0 +1,62 @@
+{
+  "settings": {
+    "size": 650,
+    "overlap_a": 65,
+    "top_k": 3,
+    "hybrid_candidates": 15,
+    "rrf_k": 60
+  },
+  "embedding": {
+    "provider": "Google Gemini Developer API",
+    "model": "gemini-embedding-2",
+    "api_version": "v1beta",
+    "dimensions": 768,
+    "document_prefix": "title: none | text: ",
+    "query_prefix": "task: question answering | query: ",
+    "document_batch_size": 16
+  },
+  "qdrant_client": "1.19.1",
+  "strategy": {
+    "A": {
+      "collection": "A_65527cf7669369e92a374999",
+      "chunks": 185,
+      "characters": 110486,
+      "length_min": 94,
+      "length_median": 650,
+      "length_mean": 597.22,
+      "length_max": 650,
+      "embedding_usage": {
+        "http_requests": 14,
+        "prompt_tokens_reported": 28573
+      },
+      "embedding_seconds": 120.634,
+      "upsert_seconds": 0.651,
+      "ingest_seconds": 121.285,
+      "chunks_after_second_upsert": 185
+    },
+    "B": {
+      "collection": "B_74f3943e14fac139c55d25ac",
+      "chunks": 197,
+      "characters": 100403,
+      "length_min": 14,
+      "length_median": 555,
+      "length_mean": 509.66,
+      "length_max": 650,
+      "embedding_usage": {
+        "http_requests": 15,
+        "prompt_tokens_reported": 25929
+      },
+      "embedding_seconds": 120.636,
+      "upsert_seconds": 0.75,
+      "ingest_seconds": 121.386,
+      "chunks_after_second_upsert": 197
+    },
+    "C": {
+      "shares_index": "B",
+      "collection": "B_74f3943e14fac139c55d25ac",
+      "chunks": 197,
+      "incremental_ingest_seconds": 0,
+      "additional_embedding_requests": 0
+    }
+  }
+}

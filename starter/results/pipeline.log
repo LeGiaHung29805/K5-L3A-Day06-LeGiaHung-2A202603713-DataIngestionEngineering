@@ -1,0 +1,12 @@
+2026-11-13 17:23:07,709 INFO Embedding A: 185 chunks
+2026-11-13 17:23:26,363 WARNING Gemini HTTP 429 (quota not specified). Retrying in 36.0 s.
+2026-11-13 17:24:02,751 WARNING Gemini HTTP 429 (quota not specified). Retrying in 59.0 s.
+2026-11-13 17:25:06,671 INFO Embedding B: 197 chunks
+2026-11-13 17:25:25,139 WARNING Gemini HTTP 429 (quota not specified). Retrying in 37.0 s.
+2026-11-13 17:26:02,511 WARNING Gemini HTTP 429 (quota not specified). Retrying in 59.0 s.
+2026-11-13 17:28:11,897 INFO Embedding A: 185 chunks
+2026-11-13 17:28:35,088 WARNING Gemini HTTP 429 (quota not specified). Retrying in 27.0 s.
+2026-11-13 17:29:03,281 WARNING Gemini HTTP 429 (quota not specified). Retrying in 59.0 s.
+2026-11-13 17:30:13,823 INFO Embedding B: 197 chunks
+2026-11-13 17:30:24,844 WARNING Gemini HTTP 429 (quota not specified). Retrying in 37.0 s.
+2026-11-13 17:31:02,218 WARNING Gemini HTTP 429 (quota not specified). Retrying in 60.0 s.

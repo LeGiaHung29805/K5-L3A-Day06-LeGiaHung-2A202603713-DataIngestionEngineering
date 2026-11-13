@@ -1,0 +1,51 @@
+{
+  "split": "dev",
+  "strategies": {
+    "A": {
+      "questions": 15,
+      "hit1": 8,
+      "hit3": 10,
+      "filter_questions": 2,
+      "filter_compliant": 2,
+      "mean_retrieval_ms": 1.598
+    },
+    "B": {
+      "questions": 15,
+      "hit1": 11,
+      "hit3": 15,
+      "filter_questions": 2,
+      "filter_compliant": 2,
+      "mean_retrieval_ms": 1.53
+    },
+    "C": {
+      "questions": 15,
+      "hit1": 11,
+      "hit3": 15,
+      "filter_questions": 2,
+      "filter_compliant": 2,
+      "mean_retrieval_ms": 1.71
+    },
+    "Hybrid": {
+      "questions": 15,
+      "hit1": 11,
+      "hit3": 15,
+      "filter_questions": 2,
+      "filter_compliant": 2,
+      "mean_retrieval_ms": 2.575
+    }
+  },
+  "embedding": {
+    "provider": "Google Gemini Developer API",
+    "model": "gemini-embedding-2",
+    "api_version": "v1beta",
+    "dimensions": 768,
+    "document_prefix": "title: none | text: ",
+    "query_prefix": "task: question answering | query: ",
+    "document_batch_size": 16
+  },
+  "query_embedding_usage": {
+    "http_requests": 15,
+    "prompt_tokens_reported": 374
+  },
+  "mean_query_embedding_ms": 725.692
+}
